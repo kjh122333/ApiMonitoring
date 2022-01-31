@@ -1,0 +1,687 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "자바 스프링기반 restful API 표준 입니다.",
+        "version": "0.5",
+        "title": "LuluBiz API",
+        "termsOfService": "http:/localhost:8080/wehago-template/",
+        "license": {
+            "name": "LICENSE",
+            "url": "http:/localhost:8080/wehago-template/"
+        }
+    },
+    "host": "172.16.114.209:8080",
+    "basePath": "/personal",
+    "tags": [
+        {
+            "name": "payroll-controller",
+            "description": "Payroll Controller"
+        },
+        {
+            "name": "log-controller",
+            "description": "Log Controller"
+        },
+        {
+            "name": "common-controller",
+            "description": "Common Controller"
+        },
+        {
+            "name": "service-key-controller",
+            "description": "Service Key Controller"
+        },
+        {
+            "name": "wehago-common-controller",
+            "description": "Wehago Common Controller"
+        }
+    ],
+    "paths": {
+        "/alivecheck": {
+            "get": {
+                "tags": [
+                    "wehago-common-controller"
+                ],
+                "summary": "getAliveCheck",
+                "operationId": "getAliveCheckUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/birth": {
+            "post": {
+                "tags": [
+                    "payroll-controller"
+                ],
+                "summary": "생년월일 확인",
+                "operationId": "checkUserBirthUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "birth_date",
+                        "in": "query",
+                        "description": "birth_date",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/logs": {
+            "get": {
+                "tags": [
+                    "log-controller"
+                ],
+                "summary": "로그 조회",
+                "operationId": "selectLogUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "service_type",
+                        "in": "query",
+                        "description": "급여조회(personalpayroll),증명서조회(personalcertificate)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/m/salary/month": {
+            "get": {
+                "tags": [
+                    "payroll-controller"
+                ],
+                "summary": "급여 조회(월별)-모바일",
+                "operationId": "getPayrollByMonthMobileUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "month",
+                        "in": "query",
+                        "description": "month(yyyyMM)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "디폴트=6",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/m/salary/year": {
+            "get": {
+                "tags": [
+                    "payroll-controller"
+                ],
+                "summary": "급여 조회(연도별)-모바일",
+                "operationId": "getPayrollByYearMobileUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "year",
+                        "in": "query",
+                        "description": "year(yyyyMM)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "디폴트=3",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/salary": {
+            "delete": {
+                "tags": [
+                    "payroll-controller"
+                ],
+                "summary": "급여 정보 삭제(단건)",
+                "operationId": "deletePayrollDataUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "employee_no",
+                        "in": "query",
+                        "description": "employee_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "month",
+                        "in": "query",
+                        "description": "month(201812)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pay_date",
+                        "in": "query",
+                        "description": "지급일(yyyyMMdd)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/salary/multi": {
+            "delete": {
+                "tags": [
+                    "payroll-controller"
+                ],
+                "summary": "급여 정보 삭제(다건)",
+                "operationId": "deletePayrollListUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "deleteList",
+                        "in": "query",
+                        "description": "[{employee_no:123,month:201812,pay_date:20181225}]",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/salary/paydate": {
+            "get": {
+                "tags": [
+                    "payroll-controller"
+                ],
+                "summary": "급여 조회(지급일별)",
+                "operationId": "getPayrollByPaydateUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "month",
+                        "in": "query",
+                        "description": "month(201812)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pay_date",
+                        "in": "query",
+                        "description": "지급일(yyyyMMdd)",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/salary/single": {
+            "post": {
+                "tags": [
+                    "payroll-controller"
+                ],
+                "summary": "급여 정보 추가(단건)",
+                "operationId": "postPayrollUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "employee_no",
+                        "in": "query",
+                        "description": "employee_no",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "company_no",
+                        "in": "query",
+                        "description": "company_no",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "cd_emp",
+                        "in": "query",
+                        "description": "cd_emp",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "birth_date",
+                        "in": "query",
+                        "description": "birth_date",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "ym_rvrs",
+                        "in": "query",
+                        "description": "ym_rvrs",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "dt_pay",
+                        "in": "query",
+                        "description": "dt_pay",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "message",
+                        "in": "query",
+                        "description": "message",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pay_list",
+                        "in": "query",
+                        "description": "pay_list",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pay_deduct_list",
+                        "in": "query",
+                        "description": "pay_deduct_list",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/salary/year": {
+            "get": {
+                "tags": [
+                    "payroll-controller"
+                ],
+                "summary": "급여 조회(월별/연도별)",
+                "operationId": "getPayrollByYearUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "year",
+                        "in": "query",
+                        "description": "year(yyyy)-웹",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "month",
+                        "in": "query",
+                        "description": "month(yyyyMM)-모바일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "count",
+                        "in": "query",
+                        "description": "디폴트=6-모바일",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/service/purchase": {
+            "get": {
+                "tags": [
+                    "common-controller"
+                ],
+                "summary": "서비스 구매여부 확인",
+                "operationId": "checkServicePurchaseUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "service_type",
+                        "in": "query",
+                        "description": "급여조회(personalpayroll),증명서조회(personalcertificate)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/service/servicekey": {
+            "get": {
+                "tags": [
+                    "service-key-controller"
+                ],
+                "summary": "서비스키 조회",
+                "operationId": "getServiceKeyUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "service_type",
+                        "in": "query",
+                        "description": "급여조회(personalpayroll),증명서조회(personalcertificate)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "LuluResult": {
+            "type": "object",
+            "properties": {
+                "resultCode": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "resultData": {
+                    "type": "object"
+                },
+                "resultMsg": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

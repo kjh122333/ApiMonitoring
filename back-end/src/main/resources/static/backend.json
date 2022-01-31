@@ -1,0 +1,700 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Test",
+        "version": "1",
+        "title": "[FINAL PROJECT] Test",
+        "license": {
+            "name": "Hong il",
+            "url": "https://github.com/oqlioc"
+        }
+    },
+    "host": "15.165.25.145:9500",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "3. ServiceApi",
+            "description": "Service Api Controller"
+        },
+        {
+            "name": "2. Service",
+            "description": "Service Controller"
+        },
+        {
+            "name": "1. ServiceCategory",
+            "description": "Service Category Controller"
+        }
+    ],
+    "paths": {
+        "/admin/category": {
+            "get": {
+                "tags": [
+                    "1. ServiceCategory"
+                ],
+                "summary": "Service Category List",
+                "description": "서비스 카테고리 리스트",
+                "operationId": "categoryListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«ServiceCategoryDto»"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "1. ServiceCategory"
+                ],
+                "summary": "Service Category Create",
+                "description": "서비스 카테고리 생성",
+                "operationId": "categoryCreateUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Dto",
+                        "description": "서비스 카테고리 생성 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ServiceCategoryDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "1. ServiceCategory"
+                ],
+                "summary": "Service Category Update",
+                "description": "서비스 카테고리 수정",
+                "operationId": "categoryUpdateUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Dto",
+                        "description": "서비스 카테고리 수정 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ServiceCategoryDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/category/{idx}": {
+            "delete": {
+                "tags": [
+                    "1. ServiceCategory"
+                ],
+                "summary": "Service Category Delete",
+                "description": "서비스 카테고리 제거",
+                "operationId": "categoryDeleteUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "서비스 카테고리 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/service": {
+            "get": {
+                "tags": [
+                    "2. Service"
+                ],
+                "summary": "Service List",
+                "description": "서비스 리스트",
+                "operationId": "serviceListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«ServiceDto»"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "2. Service"
+                ],
+                "summary": "Service Create",
+                "description": "서비스 생성",
+                "operationId": "serviceCreateUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Dto",
+                        "description": "서비스 생성 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ServiceDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "2. Service"
+                ],
+                "summary": "Service Update",
+                "description": "서비스 수정",
+                "operationId": "serviceUpdateUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Dto",
+                        "description": "서비스 수정 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ServiceDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/service/{idx}": {
+            "delete": {
+                "tags": [
+                    "2. Service"
+                ],
+                "summary": "Service Delete",
+                "description": "서비스 제거",
+                "operationId": "serviceDeleteUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "서비스 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/apit": {
+            "post": {
+                "tags": [
+                    "3. ServiceApi"
+                ],
+                "summary": "All API Test",
+                "description": "모든 api 테스트",
+                "operationId": "apiTUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "dto",
+                        "description": "서비스API 테스트 객체 PK",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ServiceApiDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseDto"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/list": {
+            "get": {
+                "tags": [
+                    "3. ServiceApi"
+                ],
+                "summary": "ServiceAPI List",
+                "description": "서비스API 리스트",
+                "operationId": "findByListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Map«string,string»"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/serviceapi": {
+            "get": {
+                "tags": [
+                    "3. ServiceApi"
+                ],
+                "summary": "ServiceAPI List",
+                "description": "서비스API 리스트",
+                "operationId": "serviceApiListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«ServiceApiDto»"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "3. ServiceApi"
+                ],
+                "summary": "ServiceAPI Create",
+                "description": "서비스API 생성",
+                "operationId": "serviceApiCreateUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "dto",
+                        "description": "서비스API 생성 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ServiceApiDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "3. ServiceApi"
+                ],
+                "summary": "ServiceAPI Update",
+                "description": "서비스API 수정",
+                "operationId": "serviceApiUpdateUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Dto",
+                        "description": "서비스 수정 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ServiceApiDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/serviceapi/{idx}": {
+            "delete": {
+                "tags": [
+                    "3. ServiceApi"
+                ],
+                "summary": "ServiceAPI Delete",
+                "description": "서비스API 제거",
+                "operationId": "serviceApiDeleteUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "서비스 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "_List«ServiceDto»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "응답 코드번호 : > 0 정상, < 0 비정상"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ServiceDto"
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "description": "응답 메시지"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "응답 성공여부 : TRUE/FALSE"
+                }
+            }
+        },
+        "Map«string,string»": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "_List«ServiceCategoryDto»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "응답 코드번호 : > 0 정상, < 0 비정상"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ServiceCategoryDto"
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "description": "응답 메시지"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "응답 성공여부 : TRUE/FALSE"
+                }
+            }
+        },
+        "ResponseDto": {
+            "type": "object",
+            "properties": {
+                "body": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "_List«ServiceApiDto»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "응답 코드번호 : > 0 정상, < 0 비정상"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ServiceApiDto"
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "description": "응답 메시지"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "응답 성공여부 : TRUE/FALSE"
+                }
+            }
+        },
+        "ServiceCategoryDto": {
+            "type": "object",
+            "properties": {
+                "category_name_kr": {
+                    "type": "string"
+                },
+                "insert_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "is_deleted": {
+                    "type": "string"
+                },
+                "service_category_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "updated_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "ServiceDto": {
+            "type": "object",
+            "properties": {
+                "insert_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "is_deleted": {
+                    "type": "string"
+                },
+                "service_category_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "service_name_kr": {
+                    "type": "string"
+                },
+                "service_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "service_state": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "service_url": {
+                    "type": "string"
+                },
+                "updated_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "ServiceApiDto": {
+            "type": "object",
+            "properties": {
+                "api_url": {
+                    "type": "string"
+                },
+                "content_type": {
+                    "type": "string"
+                },
+                "delay_status": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "employee_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "employee_sub_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "err_status": {
+                    "type": "string"
+                },
+                "insert_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "is_deleted": {
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string"
+                },
+                "param": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Map«string,string»"
+                    }
+                },
+                "response_list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Map«string,string»"
+                    }
+                },
+                "service_api_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "service_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "updated_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Common": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "응답 코드번호 : > 0 정상, < 0 비정상"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "응답 메시지"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "응답 성공여부 : TRUE/FALSE"
+                }
+            }
+        }
+    }
+}

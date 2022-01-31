@@ -1,0 +1,36 @@
+### Employee Get Update
+PATCH http://localhost:9500/user/employee/20 HTTP/1.1
+content-type: application/json
+User-Agent: rest-client
+
+{
+    "employee_contact": "01045519888",
+    "password": "123",
+    "mail": "oqlioc1@naver.com",
+    "name": "김홍일",
+    "group_no": 3,
+    "roles": [
+        "ROLE_ADMIN"
+    ]
+}
+
+## 실시간 알림 데이터
+# admin
+{
+  "message": {
+    "count": 20,
+    "type": "err",
+    "url": "http://172.16.114.234:8080/wecrm/1",
+    "employee_name": "name",
+    "employee_sub_name": "sub_name"
+    }
+}
+
+# user
+{
+  "message": {
+    "count": 21,
+    "type": "api",
+    "url": "http://172.16.114.234:8080/wecrm/12"
+    }
+}

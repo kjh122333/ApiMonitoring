@@ -1,0 +1,567 @@
+// {
+//     "200": {
+//         "description": "OK",
+//         "schema": {
+//             "properGroupName(string)": "",
+//             "properServiceCategoryName(string)": "",
+//             "sameCheck(boolean)": "",
+//             "swaggerData()": {
+//                 "basePath(string)": "",
+//                 "definitions()": "#/definitions/JsonNode",
+//                 "host(string)": "",
+//                 "info()": "#/definitions/JsonNode",
+//                 "paths()": "#/definitions/JsonNode",
+//                 "swagger(string)": "",
+//                 "tags()": "#/definitions/JsonNode"
+//             },
+//             "urlCheck(boolean)": ""
+//         }
+//     }
+// }
+
+{
+    "InetSocketAddress": {
+        "address()": {
+            "address(array)": "{type=string, format=byte}",
+            "anyLocalAddress(boolean)": "",
+            "canonicalHostName(string)": "",
+            "hostAddress(string)": "",
+            "hostName(string)": "",
+            "linkLocalAddress(boolean)": "",
+            "loopbackAddress(boolean)": "",
+            "mcglobal(boolean)": "",
+            "mclinkLocal(boolean)": "",
+            "mcnodeLocal(boolean)": "",
+            "mcorgLocal(boolean)": "",
+            "mcsiteLocal(boolean)": "",
+            "multicastAddress(boolean)": "",
+            "siteLocalAddress(boolean)": ""
+        },
+        "hostName(string)": "",
+        "hostString(string)": "",
+        "port(integer, int32)": "",
+        "unresolved(boolean)": ""
+    },
+    "SwaggerData": {
+        "basePath(string)": "",
+        "definitions()": {
+            "array(boolean)": "",
+            "bigDecimal(boolean)": "",
+            "bigInteger(boolean)": "",
+            "binary(boolean)": "",
+            "boolean(boolean)": "",
+            "containerNode(boolean)": "",
+            "double(boolean)": "",
+            "empty(boolean)": "",
+            "float(boolean)": "",
+            "floatingPointNumber(boolean)": "",
+            "int(boolean)": "",
+            "integralNumber(boolean)": "",
+            "long(boolean)": "",
+            "missingNode(boolean)": "",
+            "nodeType(string, enum)": "[ARRAY, BINARY, BOOLEAN, MISSING, NULL, NUMBER, OBJECT, POJO, STRING]",
+            "null(boolean)": "",
+            "number(boolean)": "",
+            "object(boolean)": "",
+            "pojo(boolean)": "",
+            "short(boolean)": "",
+            "textual(boolean)": "",
+            "valueNode(boolean)": ""
+        },
+        "host(string)": "",
+        "info()": {
+            "array(boolean)": "",
+            "bigDecimal(boolean)": "",
+            "bigInteger(boolean)": "",
+            "binary(boolean)": "",
+            "boolean(boolean)": "",
+            "containerNode(boolean)": "",
+            "double(boolean)": "",
+            "empty(boolean)": "",
+            "float(boolean)": "",
+            "floatingPointNumber(boolean)": "",
+            "int(boolean)": "",
+            "integralNumber(boolean)": "",
+            "long(boolean)": "",
+            "missingNode(boolean)": "",
+            "nodeType(string, enum)": "[ARRAY, BINARY, BOOLEAN, MISSING, NULL, NUMBER, OBJECT, POJO, STRING]",
+            "null(boolean)": "",
+            "number(boolean)": "",
+            "object(boolean)": "",
+            "pojo(boolean)": "",
+            "short(boolean)": "",
+            "textual(boolean)": "",
+            "valueNode(boolean)": ""
+        },
+        "paths()": {
+            "array(boolean)": "",
+            "bigDecimal(boolean)": "",
+            "bigInteger(boolean)": "",
+            "binary(boolean)": "",
+            "boolean(boolean)": "",
+            "containerNode(boolean)": "",
+            "double(boolean)": "",
+            "empty(boolean)": "",
+            "float(boolean)": "",
+            "floatingPointNumber(boolean)": "",
+            "int(boolean)": "",
+            "integralNumber(boolean)": "",
+            "long(boolean)": "",
+            "missingNode(boolean)": "",
+            "nodeType(string, enum)": "[ARRAY, BINARY, BOOLEAN, MISSING, NULL, NUMBER, OBJECT, POJO, STRING]",
+            "null(boolean)": "",
+            "number(boolean)": "",
+            "object(boolean)": "",
+            "pojo(boolean)": "",
+            "short(boolean)": "",
+            "textual(boolean)": "",
+            "valueNode(boolean)": ""
+        },
+        "swagger(string)": "",
+        "tags()": {
+            "array(boolean)": "",
+            "bigDecimal(boolean)": "",
+            "bigInteger(boolean)": "",
+            "binary(boolean)": "",
+            "boolean(boolean)": "",
+            "containerNode(boolean)": "",
+            "double(boolean)": "",
+            "empty(boolean)": "",
+            "float(boolean)": "",
+            "floatingPointNumber(boolean)": "",
+            "int(boolean)": "",
+            "integralNumber(boolean)": "",
+            "long(boolean)": "",
+            "missingNode(boolean)": "",
+            "nodeType(string, enum)": "[ARRAY, BINARY, BOOLEAN, MISSING, NULL, NUMBER, OBJECT, POJO, STRING]",
+            "null(boolean)": "",
+            "number(boolean)": "",
+            "object(boolean)": "",
+            "pojo(boolean)": "",
+            "short(boolean)": "",
+            "textual(boolean)": "",
+            "valueNode(boolean)": ""
+        }
+    },
+    "GroupDto": {
+        "group_name(string)": "",
+        "group_no(integer, int64)": ""
+    },
+    "_List«GroupDto»": {
+        "code(integer, int32)": "응답 코드번호 : > 0 정상, < 0 비정상",
+        "list(array)": {
+            "group_name(string)": "",
+            "group_no(integer, int64)": ""
+        },
+        "message(string)": "응답 메시지",
+        "success(boolean)": "false, 응답 성공여부 : TRUE/FALSE"
+    },
+    "ServiceDto": {
+        "definitions(object)": "",
+        "group_no(integer, int64)": "",
+        "insert_timestamp(string, date-time)": "",
+        "is_deleted(string)": "",
+        "service_category_no(integer, int64)": "",
+        "service_name_kr(string)": "",
+        "service_no(integer, int64)": "",
+        "service_state(integer, int64)": "",
+        "service_url(string)": "",
+        "updated_timestamp(string, date-time)": ""
+    },
+    "JsonNode": {
+        "array(boolean)": "",
+        "bigDecimal(boolean)": "",
+        "bigInteger(boolean)": "",
+        "binary(boolean)": "",
+        "boolean(boolean)": "",
+        "containerNode(boolean)": "",
+        "double(boolean)": "",
+        "empty(boolean)": "",
+        "float(boolean)": "",
+        "floatingPointNumber(boolean)": "",
+        "int(boolean)": "",
+        "integralNumber(boolean)": "",
+        "long(boolean)": "",
+        "missingNode(boolean)": "",
+        "nodeType(string, enum)": "[ARRAY, BINARY, BOOLEAN, MISSING, NULL, NUMBER, OBJECT, POJO, STRING]",
+        "null(boolean)": "",
+        "number(boolean)": "",
+        "object(boolean)": "",
+        "pojo(boolean)": "",
+        "short(boolean)": "",
+        "textual(boolean)": "",
+        "valueNode(boolean)": ""
+    },
+    "Collection«GrantedAuthority»": {},
+    "ReqServiceDto": {
+        "group_no(integer, int64)": "",
+        "service_category_no(integer, int64)": "",
+        "service_name_kr(string)": "",
+        "service_state(integer, int64)": "",
+        "service_url(string)": ""
+    },
+    "ReqEmployeeUpdateDto": {
+        "employee_contact(string)": "",
+        "group_no(integer, int64)": "",
+        "mail(string)": "",
+        "name(string)": "",
+        "password(string)": ""
+    },
+    "URI": {
+        "absolute(boolean)": "",
+        "authority(string)": "",
+        "fragment(string)": "",
+        "host(string)": "",
+        "opaque(boolean)": "",
+        "path(string)": "",
+        "port(integer, int32)": "",
+        "query(string)": "",
+        "rawAuthority(string)": "",
+        "rawFragment(string)": "",
+        "rawPath(string)": "",
+        "rawQuery(string)": "",
+        "rawSchemeSpecificPart(string)": "",
+        "rawUserInfo(string)": "",
+        "scheme(string)": "",
+        "schemeSpecificPart(string)": "",
+        "userInfo(string)": ""
+    },
+    "ReqApiErrDto": {
+        "api_err_code(integer, int64)": "",
+        "api_err_msg(string)": "",
+        "api_no(integer, int64)": "",
+        "method(string)": "",
+        "updated_timestamp(string, date-time)": "",
+        "url(string)": ""
+    },
+    "_List«ApiCategoryDto»": {
+        "code(integer, int32)": "응답 코드번호 : > 0 정상, < 0 비정상",
+        "list(array)": {
+            "api_category_name_kr(string)": "",
+            "api_category_no(integer, int64)": "",
+            "insert_timestamp(string, date-time)": "",
+            "is_deleted(string)": "",
+            "service_no(integer, int64)": "",
+            "updated_timestamp(string, date-time)": ""
+        },
+        "message(string)": "응답 메시지",
+        "success(boolean)": "false, 응답 성공여부 : TRUE/FALSE"
+    },
+    "WebSocketSession": {
+        "acceptedProtocol(string)": "",
+        "attributes(object)": "",
+        "binaryMessageSizeLimit(integer, int32)": "",
+        "extensions(array)": {
+            "name(string)": "",
+            "parameters(object)": "{type=string}"
+        },
+        "id(string)": "",
+        "localAddress()": {
+            "address()": "#/definitions/InetAddress",
+            "hostName(string)": "",
+            "hostString(string)": "",
+            "port(integer, int32)": "",
+            "unresolved(boolean)": ""
+        },
+        "open(boolean)": "",
+        "principal()": {
+            "name(string)": ""
+        },
+        "remoteAddress()": {
+            "address()": "#/definitions/InetAddress",
+            "hostName(string)": "",
+            "hostString(string)": "",
+            "port(integer, int32)": "",
+            "unresolved(boolean)": ""
+        },
+        "textMessageSizeLimit(integer, int32)": "",
+        "uri()": {
+            "absolute(boolean)": "",
+            "authority(string)": "",
+            "fragment(string)": "",
+            "host(string)": "",
+            "opaque(boolean)": "",
+            "path(string)": "",
+            "port(integer, int32)": "",
+            "query(string)": "",
+            "rawAuthority(string)": "",
+            "rawFragment(string)": "",
+            "rawPath(string)": "",
+            "rawQuery(string)": "",
+            "rawSchemeSpecificPart(string)": "",
+            "rawUserInfo(string)": "",
+            "scheme(string)": "",
+            "schemeSpecificPart(string)": "",
+            "userInfo(string)": ""
+        }
+    },
+    "ReqApiDelayDto": {
+        "api_delay_code(integer, int64)": "",
+        "api_delay_msg(string)": "",
+        "api_delay_time(number, double)": "",
+        "api_no(integer, int64)": "",
+        "method(string)": "",
+        "updated_timestamp(string, date-time)": "",
+        "url(string)": ""
+    },
+    "ReqCertificationDto": {
+        "id(string)": "",
+        "password(string)": ""
+    },
+    "Map«string,object»": {},
+    "ServiceCategoryDto": {
+        "category_name_kr(string)": "",
+        "insert_timestamp(string, date-time)": "",
+        "is_deleted(string)": "",
+        "service_category_no(integer, int64)": "",
+        "updated_timestamp(string, date-time)": ""
+    },
+    "_Single«Map«string,object»»": {
+        "code(integer, int32)": "응답 코드번호 : > 0 정상, < 0 비정상",
+        "data(object)": "",
+        "message(string)": "응답 메시지",
+        "success(boolean)": "false, 응답 성공여부 : TRUE/FALSE"
+    },
+    "ApiErrDto": {
+        "api_err_code(integer, int64)": "",
+        "api_err_comment(string)": "",
+        "api_err_msg(string)": "",
+        "api_err_no(integer, int64)": "",
+        "api_err_status(string)": "",
+        "api_no(integer, int64)": "",
+        "insert_timestamp(string, date-time)": "",
+        "updated_timestamp(string, date-time)": ""
+    },
+    "_Single«string»": {
+        "code(integer, int32)": "응답 코드번호 : > 0 정상, < 0 비정상",
+        "data(string)": "",
+        "message(string)": "응답 메시지",
+        "success(boolean)": "false, 응답 성공여부 : TRUE/FALSE"
+    },
+    "Map«string,List«Map«string,object»»»": {},
+    "_List«Map«string,object»»": {
+        "code(integer, int32)": "응답 코드번호 : > 0 정상, < 0 비정상",
+        "list(array)": {},
+        "message(string)": "응답 메시지",
+        "success(boolean)": "false, 응답 성공여부 : TRUE/FALSE"
+    },
+    "WebSocketExtension": {
+        "name(string)": "",
+        "parameters(object)": "{type=string}"
+    },
+    "UrlRequest": {
+        "groupNo(integer, int64)": "",
+        "serviceCategoryNo(integer, int64)": "",
+        "swaggerUrl(string)": ""
+    },
+    "SocketRoom": {
+        "roomId(string)": "",
+        "sessions(array)": {
+            "acceptedProtocol(string)": "",
+            "attributes(object)": "",
+            "binaryMessageSizeLimit(integer, int32)": "",
+            "extensions(array)": "{$ref=#/definitions/WebSocketExtension}",
+            "id(string)": "",
+            "localAddress()": "#/definitions/InetSocketAddress",
+            "open(boolean)": "",
+            "principal()": "#/definitions/Principal",
+            "remoteAddress()": "#/definitions/InetSocketAddress",
+            "textMessageSizeLimit(integer, int32)": "",
+            "uri()": "#/definitions/URI"
+        }
+    },
+    "_List«ServiceCategoryDto»": {
+        "code(integer, int32)": "응답 코드번호 : > 0 정상, < 0 비정상",
+        "list(array)": {
+            "category_name_kr(string)": "",
+            "insert_timestamp(string, date-time)": "",
+            "is_deleted(string)": "",
+            "service_category_no(integer, int64)": "",
+            "updated_timestamp(string, date-time)": ""
+        },
+        "message(string)": "응답 메시지",
+        "success(boolean)": "false, 응답 성공여부 : TRUE/FALSE"
+    },
+    "UrlResponse": {
+        "properGroupName(string)": "",
+        "properServiceCategoryName(string)": "",
+        "sameCheck(boolean)": "",
+        "swaggerData()": {
+            "basePath(string)": "",
+            "definitions()": "#/definitions/JsonNode",
+            "host(string)": "",
+            "info()": "#/definitions/JsonNode",
+            "paths()": "#/definitions/JsonNode",
+            "swagger(string)": "",
+            "tags()": "#/definitions/JsonNode"
+        },
+        "urlCheck(boolean)": ""
+    },
+    "GrantedAuthority": {
+        "authority(string)": ""
+    },
+    "ReqEmailDto": {
+        "id(string)": "",
+        "mail(string)": "",
+        "name(string)": ""
+    },
+    "ReqApiDto": {
+        "api_category_no(integer, int64)": "",
+        "api_url(string)": "",
+        "delay_status(string)": "",
+        "description(string)": "",
+        "employee_no(integer, int64)": "",
+        "employee_sub_no(integer, int64)": "",
+        "err_status(string)": "",
+        "is_deleted(string)": "",
+        "method(string)": "",
+        "param(array)": {},
+        "parameter_type(string)": "",
+        "response_list(object)": "",
+        "response_type(string)": "",
+        "update_employee_id(string)": ""
+    },
+    "_Single«ServiceCategoryDto»": {
+        "code(integer, int32)": "응답 코드번호 : > 0 정상, < 0 비정상",
+        "data()": {
+            "category_name_kr(string)": "",
+            "insert_timestamp(string, date-time)": "",
+            "is_deleted(string)": "",
+            "service_category_no(integer, int64)": "",
+            "updated_timestamp(string, date-time)": ""
+        },
+        "message(string)": "응답 메시지",
+        "success(boolean)": "false, 응답 성공여부 : TRUE/FALSE"
+    },
+    "OverLapCommonResponse": {
+        "isExpectedCreate(array)": {
+            "api_category_no(integer, int64)": "",
+            "api_url(string)": "",
+            "is_deleted(string)": "",
+            "method(string)": ""
+        },
+        "isExpectedDelete(array)": {
+            "api_category_no(integer, int64)": "",
+            "api_url(string)": "",
+            "is_deleted(string)": "",
+            "method(string)": ""
+        },
+        "isExpectedUpdate(array)": {
+            "api_category_no(integer, int64)": "",
+            "api_url(string)": "",
+            "is_deleted(string)": "",
+            "method(string)": ""
+        },
+        "overlap(boolean)": ""
+    },
+    "Common": {
+        "code(integer, int32)": "응답 코드번호 : > 0 정상, < 0 비정상",
+        "message(string)": "응답 메시지",
+        "success(boolean)": "false, 응답 성공여부 : TRUE/FALSE"
+    },
+    "_Single«Map«string,string»»": {
+        "code(integer, int32)": "응답 코드번호 : > 0 정상, < 0 비정상",
+        "data(object)": "{type=string}",
+        "message(string)": "응답 메시지",
+        "success(boolean)": "false, 응답 성공여부 : TRUE/FALSE"
+    },
+    "SaveCommonResponse": {
+        "properGroupName(string)": "",
+        "properServiceCategoryName(string)": "",
+        "saveSuccess(boolean)": ""
+    },
+    "OverLapAndSaveRequest": {
+        "apiCategoryName(string)": "",
+        "employee()": {
+            "employee_no(integer, int64)": "",
+            "group_name(string)": "",
+            "group_no(integer, int64)": "",
+            "name(string)": ""
+        },
+        "employeeSub()": {
+            "employee_no(integer, int64)": "",
+            "group_name(string)": "",
+            "group_no(integer, int64)": "",
+            "name(string)": ""
+        },
+        "groupNo(integer, int64)": "",
+        "selectedApiList(array)": {
+            "employee(string)": "",
+            "employeeSub(string)": "",
+            "method(string)": "",
+            "path(string)": ""
+        },
+        "serviceCategoryNo(integer, int64)": "",
+        "swaggerUrl(string)": "",
+        "updateEmployeeId(string)": ""
+    },
+    "CheckOverlapApi": {
+        "api_category_no(integer, int64)": "",
+        "api_url(string)": "",
+        "is_deleted(string)": "",
+        "method(string)": ""
+    },
+    "ApiDelayDto": {
+        "api_delay_code(integer, int64)": "",
+        "api_delay_comment(string)": "",
+        "api_delay_msg(string)": "",
+        "api_delay_no(integer, int64)": "",
+        "api_delay_status(string)": "",
+        "api_delay_time(number, double)": "",
+        "api_no(integer, int64)": "",
+        "insert_timestamp(string, date-time)": "",
+        "updated_timestamp(string, date-time)": ""
+    },
+    "_Single«Map«string,List«Map«string,object»»»»": {
+        "code(integer, int32)": "응답 코드번호 : > 0 정상, < 0 비정상",
+        "data(object)": {},
+        "message(string)": "응답 메시지",
+        "success(boolean)": "false, 응답 성공여부 : TRUE/FALSE"
+    },
+    "Employee": {
+        "employee_no(integer, int64)": "",
+        "group_name(string)": "",
+        "group_no(integer, int64)": "",
+        "name(string)": ""
+    },
+    "SelectedApiList": {
+        "employee(string)": "",
+        "employeeSub(string)": "",
+        "method(string)": "",
+        "path(string)": ""
+    },
+    "Map«string,string»": {},
+    "_List«string»": {
+        "code(integer, int32)": "응답 코드번호 : > 0 정상, < 0 비정상",
+        "list(array)": "{type=string}",
+        "message(string)": "응답 메시지",
+        "success(boolean)": "false, 응답 성공여부 : TRUE/FALSE"
+    },
+    "ApiCategoryDto": {
+        "api_category_name_kr(string)": "",
+        "api_category_no(integer, int64)": "",
+        "insert_timestamp(string, date-time)": "",
+        "is_deleted(string)": "",
+        "service_no(integer, int64)": "",
+        "updated_timestamp(string, date-time)": ""
+    },
+    "InetAddress": {
+        "address(array)": "{type=string, format=byte}",
+        "anyLocalAddress(boolean)": "",
+        "canonicalHostName(string)": "",
+        "hostAddress(string)": "",
+        "hostName(string)": "",
+        "linkLocalAddress(boolean)": "",
+        "loopbackAddress(boolean)": "",
+        "mcglobal(boolean)": "",
+        "mclinkLocal(boolean)": "",
+        "mcnodeLocal(boolean)": "",
+        "mcorgLocal(boolean)": "",
+        "mcsiteLocal(boolean)": "",
+        "multicastAddress(boolean)": "",
+        "siteLocalAddress(boolean)": ""
+    },
+    "Principal": {
+        "name(string)": ""
+    }
+}

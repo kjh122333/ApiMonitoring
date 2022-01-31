@@ -1,0 +1,31 @@
+.page {
+}
+
+.page > p {
+  text-align: left;
+  font-size: 25px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+.page > div {
+  margin-left: 5%;
+  /* margin-right: 10%; */
+}
+/*
+ * tooltip 색상
+ */
+/* .ant-tooltip-inner {
+     background-color: black;
+   } */
+
+.ant-tooltip-placement-bottom .ant-tooltip-inner {
+  background-color: rgb(255, 255, 255);
+}
+
+/* 
+  * 체크박스
+  */
+.ant-checkbox-group-item {
+  display: block;
+  margin-right: 0;
+}

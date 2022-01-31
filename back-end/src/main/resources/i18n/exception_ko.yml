@@ -1,0 +1,107 @@
+unKnown:
+  code: "-9999"
+  msg: "알수 없는 오류가 발생하였습니다."
+
+EmployeeNotFoundErrException:
+  code: "-1000"
+  msg: "존재하지 않는 회원입니다."
+
+EmployeeIdSigninFailedErrException:
+  code: "-1001"
+  msg: "계정이 존재하지 않거나 이메일 또는 비밀번호가 정확하지 않습니다."
+
+CAuthenticationEntryPointException:
+  code: "-1002"
+  msg: "해당 리소스에 접근하기 위한 권한이 없습니다."
+  
+accessDenied:
+  code: "-1003"
+  msg: "보유한 권한으로 접근할수 없는 리소스 입니다."
+
+MalformedJwtException:
+  code: "-1004"
+  msg: "유효한 토큰이 아닙니다. (MalformedJwtException)"
+
+SignatureException:
+  code: "-1005"
+  msg: "유효한 토큰이 아닙니다. (SignatureException)"
+
+ExpiredJwtException:
+  code: "-1006"
+  msg: "토큰이 만료되었습니다."
+
+MethodArgumentNotValidException:
+  code: "901"
+  msg: "입력을 다시 한번 확인해주세요."
+
+EmployeeSameIdErrorException:
+  code: "902"
+  msg: "Employee 아이디가 중복 되었습니다."
+
+EmailSendEmployeeErrorException:
+  code: "903"
+  msg: "Employee 정보가 정확하지 않습니다"
+
+IdAndTokenNotMatchErrorException:
+  code: "905"
+  msg: "ID와 토큰이 일치하지 않습니다."
+
+ApiNotFoundWithURLandMethodErrorException:
+  code: "906"
+  msg: "Api_url, Method가 있는 Api가 없습니다."
+
+ApiNotFoundWithNumberErrorException:
+  code: "907"
+  msg: "해당 Api_no의 Api가 없습니다."
+
+ApiNotFoundErrorException:
+  code: "908"
+  msg: "API를 찾을 수 없습니다"
+
+SameNameErrorException:
+  code: "909"
+  msg: "이름이 중복 되었습니다."
+
+SameURLErrorException:
+  code: "910"
+  msg: "URL이 중복 되었습니다."
+
+SqlIndexErrorException:
+  code: "911"
+  msg: "옳지 않은 index 입니다."
+
+ApiAuthorityErrorException:
+  code: "914"
+  msg: "해당 API의 권한이 없습니다."
+
+ApiDelayNotFoundWithNumberErrorException:
+  code: "915"
+  msg: "해당 Api_delay_no의 Delay가 없습니다."
+
+ApiErrorNotFoundWithNumberErrorException:
+  code: "916"
+  msg: "해당 Api_err_no의 Err가 없습니다."
+
+ApiCategoryNotFoundWithNumberErrorException:
+  code: "917"
+  msg: "해당 Api_category_no의 Api_Category가 없습니다."
+
+ErrAndDelayCheckErrorException:
+  code: "918"
+  msg: "Err 및 Delay를 확인해 주십시오."
+
+NotificationNotFoundWithNumberErrorException:
+  code: "919"
+  msg: "해당 Notify_no의 Notification이 없습니다."
+
+ServiceCategoryNotFoundWithNumberErrorException:
+  code: "920"
+  msg: "해당 Service_category_no의 ServiceCategory이 없습니다."
+
+ServiceNotFoundWithNumberErrorException:
+  code: "921"
+  msg: "해당 Service_no의 Service 없습니다."
+
+GroupNotFoundWithNumberErrorException:
+  code: "922"
+  msg: "해당 Group_no의 Group 없습니다."

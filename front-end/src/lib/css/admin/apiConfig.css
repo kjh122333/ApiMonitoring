@@ -1,0 +1,28 @@
+.confirm-table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.confirm-table td, .confirm-table th{
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+.open-tooltip{
+    color:#1890FF;
+}
+
+.tooltip-span{
+    display: block;
+}
+
+
+#api-config-table td{
+    padding: 4px 8px;
+}
+
+#api-list-table td{
+    padding: 0px 2px;
+}

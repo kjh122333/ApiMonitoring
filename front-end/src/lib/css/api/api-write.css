@@ -1,0 +1,76 @@
+.param-header{
+    background: #6C757D;
+    font-size: 100%;
+    font-weight: 700;
+    color: white;
+    margin-right: 8px;
+    text-align: center;
+}
+
+.param-header-empty{
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.input-header{
+    padding:5px 0px 0px 0px;
+}
+
+.add-button{
+    background: #6C757D;
+    font-size: 100%;
+    font-weight: 700;
+    color: white;
+    height: 43px;
+    vertical-align:text-bottom;
+}
+
+.ant-list-header{
+    text-align: center;
+}
+
+.react-file-reader-button{
+    display: flex;
+}
+
+.content{
+    text-align: left;
+}
+
+.step{
+    margin-left: 5px;
+}
+
+.img{
+    border: 1px solid #dddddd;
+    margin: 10px 0px;
+}
+
+.red{
+    font-weight: bold;
+    color: red;
+}
+.blue{
+    font-weight: bold;
+    color: blue;
+}
+
+red-bold{
+    font-weight: bold;
+    color: red;
+}
+
+blue-bold{
+    font-weight: bold;
+    color: blue;
+}
+
+.step h4, .step h5{
+    display: inline;
+}
+
+
+
+

@@ -1,0 +1,46 @@
+.login-form-forgot {
+  float: right;
+  border: 0px;
+  color: blue
+}
+.login-form-back {
+  float: left;
+  border: 0px;
+  color: blue
+}
+.login-form-button {
+  width: 100%;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -267px 0 0 -250px;
+  width: 500px; height: 500px;
+  padding: 10px;
+
+}
+.centerOuter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -250px 0 0 -250px;
+  width: 500px; height: 500px;
+  /* border: 10px solid forestgreen; */
+  padding: 10px;
+  /* background-color: lightgreen; */
+  border: 5px solid #F0F2F5;
+  border-radius: 20px;
+  background-color: rgba()
+}
+
+.centerInner {
+  /* position: absolute; */
+  display: inline-block;
+  margin: 10%;
+ width:70%;
+  /* background-color: yellow; */
+  text-align: center;
+}
+

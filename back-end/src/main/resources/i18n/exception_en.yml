@@ -1,0 +1,107 @@
+unKnown:
+  code: "-9999"
+  msg: "An unknown error has occurred."
+
+EmployeeNotFoundErrException:
+  code: "-1000"
+  msg: "This member not exist"
+
+EmployeeIdSigninFailedErrException:
+  code: "-1001"
+  msg: "Your account does not exist or your email or password is incorrect."
+
+CAuthenticationEntryPointException:
+  code: "-1002"
+  msg: "You do not have permission to access this resource."
+  
+accessDenied:
+  code: "-1003"
+  msg: "A resource that can not be accessed with the privileges it has."
+  
+MalformedJwtException:
+  code: "-1004"
+  msg: "Not a valid token. (MalformedJwtException)"
+
+SignatureException:
+  code: "-1005"
+  msg: "Not a valid token. (SignatureException)"
+
+ExpiredJwtException:
+  code: "-1006"
+  msg: "The token has expired."
+
+MethodArgumentNotValidException:
+  code: "901"
+  msg: "Please check your input again."
+
+EmployeeSameIdErrorException:
+  code: "902"
+  msg: "The Employee ID is a duplicate."
+
+EmailSendEmployeeErrorException:
+  code: "903"
+  msg: "Employee information is incorrect."
+
+IdAndTokenNotMatchErrorException:
+  code: "905"
+  msg: "ID and token do not match."
+  
+ApiNotFoundWithURLandMethodErrorException:
+  code: "906"
+  msg: "Api_url, not found Api with Method."
+  
+ApiNotFoundWithNumberErrorException:
+  code: "907"
+  msg: "No API for that Api_no."
+
+ApiNotFoundErrorException:
+  code: "908"
+  msg: "API not found"
+
+SameNameErrorException:
+  code: "909"
+  msg: "The Name is a duplicate."
+
+SameURLErrorException:
+  code: "910"
+  msg: "The URL is a duplicate."
+
+SqlIndexErrorException:
+  code: "911"
+  msg: "It's not the right Index."
+
+ApiAuthorityErrorException:
+  code: "914"
+  msg: "You do not have permission for this API."
+
+ApiDelayNotFoundWithNumberErrorException:
+  code: "915"
+  msg: "No Api_Delay for that Api_delay_no."
+
+ApiErrorNotFoundWithNumberErrorException:
+  code: "916"
+  msg: "No Api_Error for that Api_err_no."
+
+ApiCategoryNotFoundWithNumberErrorException:
+  code: "917"
+  msg: "No Api_category_no for that Api_Category."
+
+ErrAndDelayCheckErrorException:
+  code: "918"
+  msg: "Please check Err and Delay."
+
+NotificationNotFoundWithNumberErrorException:
+  code: "919"
+  msg: "No Notify_no for that Notification."
+
+ServiceCategoryNotFoundWithNumberErrorException:
+  code: "920"
+  msg: "No Service_category_no for that ServiceCategory."
+
+ServiceNotFoundWithNumberErrorException:
+  code: "921"
+  msg: "No Service_no for that Service."
+
+GroupNotFoundWithNumberErrorException:
+  code: "922"
+  msg: "No Group_no for that Group."

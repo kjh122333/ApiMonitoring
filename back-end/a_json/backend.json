@@ -1,0 +1,3974 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API 관리하는 서비스 입니다.",
+        "version": "1",
+        "title": "API Monitoring Service API List",
+        "license": {
+            "name": "React Front",
+            "url": "http://15.165.25.145:9600"
+        }
+    },
+    "host": "15.165.25.145:9500",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "2. Service",
+            "description": "Service Controller"
+        },
+        {
+            "name": "4. Api",
+            "description": "Api Controller"
+        },
+        {
+            "name": "8. Group",
+            "description": "Group Controller"
+        },
+        {
+            "name": "1. ServiceCategory",
+            "description": "Service Category Controller"
+        },
+        {
+            "name": "3. ApiCategory",
+            "description": "Api Category Controller"
+        },
+        {
+            "name": "0. Admin",
+            "description": "Admin Controller"
+        },
+        {
+            "name": "9. Auth",
+            "description": "Auth Controller"
+        },
+        {
+            "name": "6. ApiDelay",
+            "description": "Api Delay Controller"
+        },
+        {
+            "name": "5. ApiErr",
+            "description": "Api Err Controller"
+        },
+        {
+            "name": "SwaggerApiDocs",
+            "description": "Check Swagger Data Controller"
+        },
+        {
+            "name": "7. Employee",
+            "description": "Employee Controller"
+        },
+        {
+            "name": "exception-controller",
+            "description": "Exception Controller"
+        }
+    ],
+    "paths": {
+        "/admin/apicategory": {
+            "get": {
+                "tags": [
+                    "0. Admin"
+                ],
+                "summary": "API Category List",
+                "description": "API 카테고리 리스트",
+                "operationId": "apicategoryListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/category": {
+            "post": {
+                "tags": [
+                    "0. Admin"
+                ],
+                "summary": "Service Category Create",
+                "description": "서비스 카테고리 생성",
+                "operationId": "serviceCategoryCreateUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Dto",
+                        "description": "서비스 카테고리 생성 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ServiceCategoryDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/category/f/{idx}": {
+            "patch": {
+                "tags": [
+                    "0. Admin"
+                ],
+                "summary": "Service Category isDelete 'F'",
+                "description": "서비스 카테고리 isDelete All 'F'",
+                "operationId": "serviceCategoryFUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "서비스 카테고리 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/category/t": {
+            "patch": {
+                "tags": [
+                    "0. Admin"
+                ],
+                "summary": "Service Category isDelete 'T'",
+                "description": "서비스 카테고리 isDelete All 'T'",
+                "operationId": "serviceCategoryTUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "idx",
+                        "description": "서비스 카테고리 번호",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer",
+                                "format": "int64"
+                            }
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/category/tcheck": {
+            "patch": {
+                "tags": [
+                    "0. Admin"
+                ],
+                "summary": "Service Category isDelete 'T' Child List",
+                "description": "서비스 카테고리 isDelete T 될때 같이 T 되는 자식 리스트",
+                "operationId": "serviceCategoryTChildCheckUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "idx",
+                        "description": "서비스 카테고리 번호",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer",
+                                "format": "int64"
+                            }
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/category/{idx}": {
+            "put": {
+                "tags": [
+                    "0. Admin"
+                ],
+                "summary": "Service Category Update",
+                "description": "서비스 카테고리 수정",
+                "operationId": "serviceCategoryUpdateUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "서비스 카테고리 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "body",
+                        "name": "Dto",
+                        "description": "서비스 카테고리 수정 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ServiceCategoryDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "0. Admin"
+                ],
+                "summary": "Service Category Delete",
+                "description": "서비스 카테고리 완전 제거",
+                "operationId": "serviceCategoryDeleteUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "서비스 카테고리 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/employee": {
+            "patch": {
+                "tags": [
+                    "0. Admin"
+                ],
+                "summary": "Employee isDelete All 'T'",
+                "description": "Employee isDelete 모두 'T'",
+                "operationId": "employeeisDeleteAllTUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "idx",
+                        "description": "Employee 번호",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer",
+                                "format": "int64"
+                            }
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/employee/listcheck": {
+            "post": {
+                "tags": [
+                    "0. Admin"
+                ],
+                "summary": "Employee List Id Check",
+                "description": "Employee 리스트 Id 중복 확인",
+                "operationId": "employeeListIdCheckUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "idx",
+                        "description": "Employee 번호",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«string»"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/service": {
+            "get": {
+                "tags": [
+                    "0. Admin"
+                ],
+                "summary": "Service List",
+                "description": "서비스 리스트",
+                "operationId": "serviceListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            }
+        },
+        "/admin/signup/import": {
+            "post": {
+                "tags": [
+                    "0. Admin"
+                ],
+                "summary": "Signup",
+                "description": "회원가입",
+                "operationId": "SignupimportUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "employee",
+                        "description": "아이디",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Employee"
+                            }
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/email": {
+            "post": {
+                "tags": [
+                    "9. Auth"
+                ],
+                "summary": "Email Auth",
+                "description": "이메일 인증 후 비밀번호 수정",
+                "operationId": "mailUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "dto",
+                        "description": "Id, Mail, Name",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReqEmailDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/signin": {
+            "post": {
+                "tags": [
+                    "9. Auth"
+                ],
+                "summary": "Signin",
+                "description": "로그인",
+                "operationId": "SigninUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "dto",
+                        "description": "ID, Password",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReqCertificationDto"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_Single«Map«string,string»»"
+                        }
+                    }
+                }
+            }
+        },
+        "/exception/accessdenied": {
+            "get": {
+                "tags": [
+                    "exception-controller"
+                ],
+                "summary": "accessdeniedException",
+                "operationId": "accessdeniedExceptionUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "head": {
+                "tags": [
+                    "exception-controller"
+                ],
+                "summary": "accessdeniedException",
+                "operationId": "accessdeniedExceptionUsingHEAD",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "exception-controller"
+                ],
+                "summary": "accessdeniedException",
+                "operationId": "accessdeniedExceptionUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "exception-controller"
+                ],
+                "summary": "accessdeniedException",
+                "operationId": "accessdeniedExceptionUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "exception-controller"
+                ],
+                "summary": "accessdeniedException",
+                "operationId": "accessdeniedExceptionUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "options": {
+                "tags": [
+                    "exception-controller"
+                ],
+                "summary": "accessdeniedException",
+                "operationId": "accessdeniedExceptionUsingOPTIONS",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "exception-controller"
+                ],
+                "summary": "accessdeniedException",
+                "operationId": "accessdeniedExceptionUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/exception/entrypoint": {
+            "get": {
+                "tags": [
+                    "exception-controller"
+                ],
+                "summary": "entrypointException",
+                "operationId": "entrypointExceptionUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "head": {
+                "tags": [
+                    "exception-controller"
+                ],
+                "summary": "entrypointException",
+                "operationId": "entrypointExceptionUsingHEAD",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "exception-controller"
+                ],
+                "summary": "entrypointException",
+                "operationId": "entrypointExceptionUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "exception-controller"
+                ],
+                "summary": "entrypointException",
+                "operationId": "entrypointExceptionUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "exception-controller"
+                ],
+                "summary": "entrypointException",
+                "operationId": "entrypointExceptionUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "options": {
+                "tags": [
+                    "exception-controller"
+                ],
+                "summary": "entrypointException",
+                "operationId": "entrypointExceptionUsingOPTIONS",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "exception-controller"
+                ],
+                "summary": "entrypointException",
+                "operationId": "entrypointExceptionUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/swagger-api-docs-json/check": {
+            "post": {
+                "tags": [
+                    "SwaggerApiDocs"
+                ],
+                "summary": "Check URL(Swagger Api Docs)",
+                "operationId": "CheckSwaggerApiDocsUrlUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "urlRequest",
+                        "description": "urlRequest",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UrlRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/UrlResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/swagger-api-docs-json/jsonfiles": {
+            "get": {
+                "tags": [
+                    "SwaggerApiDocs"
+                ],
+                "summary": "return Json Data",
+                "operationId": "ReturnSwaggerJsonFromFileUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "req",
+                        "in": "query",
+                        "description": "req",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/swagger-api-docs-json/overlap": {
+            "post": {
+                "tags": [
+                    "SwaggerApiDocs"
+                ],
+                "summary": "Check overlap from database& new json data(Swagger Api Docs)",
+                "operationId": "CheckOverlapUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "req",
+                        "description": "req",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/OverLapAndSaveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/OverLapCommonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/swagger-api-docs-json/save": {
+            "post": {
+                "tags": [
+                    "SwaggerApiDocs"
+                ],
+                "summary": "Save json datas from SwaggerApiDocs url",
+                "operationId": "SaveSwaggerApiDocsAhUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/OverLapAndSaveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SaveCommonResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/api": {
+            "get": {
+                "tags": [
+                    "4. Api"
+                ],
+                "summary": "API List",
+                "description": "API 리스트",
+                "operationId": "findByListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "4. Api"
+                ],
+                "summary": "API Create",
+                "description": "API 생성",
+                "operationId": "apiCreateUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "dto",
+                        "description": "API 생성 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReqApiDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/api/delaystatus/{idx}": {
+            "patch": {
+                "tags": [
+                    "4. Api"
+                ],
+                "summary": "API DelayStatus",
+                "description": "API 지연 상태 'F'",
+                "operationId": "apiDelayStatusUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/api/detail/{idx}": {
+            "get": {
+                "tags": [
+                    "4. Api"
+                ],
+                "summary": "API Get",
+                "description": "API 단건",
+                "operationId": "apiGetUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "service_no",
+                        "in": "query",
+                        "description": "서비스 단건 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "api_category_no",
+                        "in": "query",
+                        "description": "API 카테고리 단건 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API 단건 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_Single«Map«string,object»»"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/api/err/{idx}": {
+            "get": {
+                "tags": [
+                    "4. Api"
+                ],
+                "summary": "API Get Err List",
+                "description": "API 단건 Err 리스트",
+                "operationId": "apiGetErrListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API 단건 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/api/errstatus/{idx}": {
+            "patch": {
+                "tags": [
+                    "4. Api"
+                ],
+                "summary": "API ErrStatus",
+                "description": "API 에러 상태 'F'",
+                "operationId": "apiErrStatusUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/api/f/{idx}": {
+            "patch": {
+                "tags": [
+                    "4. Api"
+                ],
+                "summary": "API isDelete 'F'",
+                "description": "API isDelete 'F'",
+                "operationId": "apiFUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/api/isdeletef": {
+            "get": {
+                "tags": [
+                    "4. Api"
+                ],
+                "summary": "API isDelete List 'F'",
+                "description": "API isDelete 리스트 'F'",
+                "operationId": "findByIsDeleteListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/api/t/{idx}": {
+            "patch": {
+                "tags": [
+                    "4. Api"
+                ],
+                "summary": "API isDelete 'T'",
+                "description": "API isDelete 'T'",
+                "operationId": "apiTUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/api/{idx}": {
+            "delete": {
+                "tags": [
+                    "4. Api"
+                ],
+                "summary": "API Delete",
+                "description": "API 완전 제거",
+                "operationId": "apiDeleteUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "4. Api"
+                ],
+                "summary": "API Update",
+                "description": "API 수정",
+                "operationId": "apiUpdateUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "body",
+                        "name": "Dto",
+                        "description": "API 수정 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReqApiDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/apicategory": {
+            "get": {
+                "tags": [
+                    "3. ApiCategory"
+                ],
+                "summary": "API Category List",
+                "description": "API 카테고리 리스트",
+                "operationId": "apicategoryListUsingGET_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«ApiCategoryDto»"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "3. ApiCategory"
+                ],
+                "summary": "API Category Create",
+                "description": "API 카테고리 생성",
+                "operationId": "apicategoryCreateUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "dto",
+                        "description": "API 카테고리 생성 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ApiCategoryDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "3. ApiCategory"
+                ],
+                "summary": "API Category Update",
+                "description": "API 카테고리 수정",
+                "operationId": "apicategoryUpdateUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Dto",
+                        "description": "API 카테고리 수정 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ApiCategoryDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/apicategory/f/{idx}": {
+            "patch": {
+                "tags": [
+                    "3. ApiCategory"
+                ],
+                "summary": "API Category IsDelete 'F'",
+                "description": "API 카테고리 isDelete 'F'",
+                "operationId": "apicategoryFUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API 카테고리 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/apicategory/t/{idx}": {
+            "patch": {
+                "tags": [
+                    "3. ApiCategory"
+                ],
+                "summary": "API Category IsDelete 'T'",
+                "description": "API 카테고리 isDelete 'T'",
+                "operationId": "apicategoryTUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API 카테고리 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/apicategory/tcheck/{idx}": {
+            "patch": {
+                "tags": [
+                    "3. ApiCategory"
+                ],
+                "summary": "API Category isDelete 'T' Child List",
+                "description": "API 카테고리 isDelete T 될때 같이 T 되는 자식 리스트",
+                "operationId": "apicategoryTChildCheckUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API 카테고리 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/apicategory/{idx}": {
+            "delete": {
+                "tags": [
+                    "3. ApiCategory"
+                ],
+                "summary": "API Category Delete",
+                "description": "API 카테고리 완전 제거",
+                "operationId": "apicategoryDeleteUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API 카테고리 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/apidelay": {
+            "get": {
+                "tags": [
+                    "6. ApiDelay"
+                ],
+                "summary": "API Delay List",
+                "description": "API Delay 리스트",
+                "operationId": "apiDelayListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "6. ApiDelay"
+                ],
+                "summary": "API Delay Create",
+                "description": "API Delay 생성",
+                "operationId": "apiDelayCreateUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Dto",
+                        "description": "API Err 생성 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReqApiDelayDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/apidelay/status": {
+            "get": {
+                "tags": [
+                    "6. ApiDelay"
+                ],
+                "summary": "API Delay List",
+                "description": "API Delay Status 리스트 'F'",
+                "operationId": "findByStatusListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/apidelay/{idx}": {
+            "get": {
+                "tags": [
+                    "6. ApiDelay"
+                ],
+                "summary": "API Delay Get",
+                "description": "API Delay 단건",
+                "operationId": "apiDelayGetUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API Delay 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_Single«Map«string,object»»"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "6. ApiDelay"
+                ],
+                "summary": "API Err Delete",
+                "description": "API Delay 완전 제거",
+                "operationId": "apiErrDeleteUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API Delay 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "6. ApiDelay"
+                ],
+                "summary": "API Delay Update",
+                "description": "API Delay 수정",
+                "operationId": "apiDelayUpdateUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API Err 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "body",
+                        "name": "Dto",
+                        "description": "API Delay 수정 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ApiDelayDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/apierr": {
+            "get": {
+                "tags": [
+                    "5. ApiErr"
+                ],
+                "summary": "API Err List",
+                "description": "API Err 리스트",
+                "operationId": "apiErrListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "5. ApiErr"
+                ],
+                "summary": "API Err Create",
+                "description": "API Err 생성",
+                "operationId": "apiErrCreateUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Dto",
+                        "description": "API Err 생성 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReqApiErrDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/apierr/status": {
+            "get": {
+                "tags": [
+                    "5. ApiErr"
+                ],
+                "summary": "API Err List",
+                "description": "API Err Status 리스트 'F'",
+                "operationId": "findByStatusListUsingGET_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/apierr/{idx}": {
+            "get": {
+                "tags": [
+                    "5. ApiErr"
+                ],
+                "summary": "API Err Get",
+                "description": "API Err 단건",
+                "operationId": "apiErrGetUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API Err 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_Single«Map«string,object»»"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "5. ApiErr"
+                ],
+                "summary": "API Err Delete",
+                "description": "API Err 완전 제거",
+                "operationId": "apiErrDeleteUsingDELETE_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API Err 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "5. ApiErr"
+                ],
+                "summary": "API Err Update",
+                "description": "API Err 수정",
+                "operationId": "apiErrUpdateUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "API Err 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "body",
+                        "name": "Dto",
+                        "description": "API Err 수정 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ApiErrDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/category": {
+            "get": {
+                "tags": [
+                    "1. ServiceCategory"
+                ],
+                "summary": "Service Category List",
+                "description": "서비스 카테고리 리스트",
+                "operationId": "serviceCategoryListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«ServiceCategoryDto»"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/category/{idx}": {
+            "get": {
+                "tags": [
+                    "1. ServiceCategory"
+                ],
+                "summary": "Service Category Get",
+                "description": "서비스 카테고리 단건",
+                "operationId": "serviceCategoryGetUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "서비스 카테고리 단건 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_Single«ServiceCategoryDto»"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/chcek": {
+            "post": {
+                "tags": [
+                    "7. Employee"
+                ],
+                "summary": "Check Auth",
+                "description": "회원 등급 체크",
+                "operationId": "ChcekUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "id",
+                        "description": "로그인 한 아이디",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_Single«string»"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/columnsconfig/{idx}": {
+            "patch": {
+                "tags": [
+                    "7. Employee"
+                ],
+                "summary": "Employee Columns Config",
+                "description": "Employee 컬럼 설정",
+                "operationId": "columnsconfigUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "Employee 아이디",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "config",
+                        "description": "Columns Config 설정 내용",
+                        "required": true,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/employee": {
+            "get": {
+                "tags": [
+                    "7. Employee"
+                ],
+                "summary": "Employee List",
+                "description": "Employee 리스트",
+                "operationId": "employeeListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/employee/data": {
+            "get": {
+                "tags": [
+                    "7. Employee"
+                ],
+                "summary": "Employee List data",
+                "description": "Employee 사용자 정보만 리스트",
+                "operationId": "employeeDataListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/employee/detail/{idx}": {
+            "get": {
+                "tags": [
+                    "7. Employee"
+                ],
+                "summary": "Employee Detail Get",
+                "description": "Employee 상세보기 단건",
+                "operationId": "employeeDetailGetUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "Employee 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/employee/email/{idx}": {
+            "patch": {
+                "tags": [
+                    "7. Employee"
+                ],
+                "summary": "Email Employee Password 수정",
+                "description": "이메일 인증 후 비밀 번호 수정",
+                "operationId": "employeePasswordUpdateUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "Employee 번호",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "password",
+                        "description": "Employee 수정 Password",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/employee/{idx}": {
+            "get": {
+                "tags": [
+                    "7. Employee"
+                ],
+                "summary": "Employee Get",
+                "description": "Employee 단건",
+                "operationId": "employeeGetUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "Employee Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_Single«Map«string,object»»"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "7. Employee"
+                ],
+                "summary": "Employee Get 수정",
+                "description": "Employee 단건 수정",
+                "operationId": "employeeGetUpdateUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "Employee 번호",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "dto",
+                        "description": "Employee 수정 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReqEmployeeUpdateDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/firstlogin/email": {
+            "post": {
+                "tags": [
+                    "7. Employee"
+                ],
+                "summary": "First Login Email Auth",
+                "description": "첫 로그인 시 이메일 인증",
+                "operationId": "mailUsingPOST_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "dto",
+                        "description": "Id, Password",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReqCertificationDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/group": {
+            "post": {
+                "tags": [
+                    "8. Group"
+                ],
+                "summary": "Group Create",
+                "description": "Group 생성",
+                "operationId": "groupCreateUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "dto",
+                        "description": "Group 생성 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GroupDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/groupname": {
+            "get": {
+                "tags": [
+                    "8. Group"
+                ],
+                "summary": "Group Name List",
+                "description": "Group Name 리스트",
+                "operationId": "groupNameListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«GroupDto»"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/self/certification": {
+            "post": {
+                "tags": [
+                    "7. Employee"
+                ],
+                "summary": "Self Certification",
+                "description": "본인 확인",
+                "operationId": "SelfCertificationUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "dto",
+                        "description": "Id, Password",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ReqCertificationDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/service": {
+            "get": {
+                "tags": [
+                    "2. Service"
+                ],
+                "summary": "Service List",
+                "description": "서비스 리스트",
+                "operationId": "serviceListUsingGET_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "2. Service"
+                ],
+                "summary": "Service Create",
+                "description": "서비스 생성",
+                "operationId": "serviceCreateUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Dto",
+                        "description": "서비스 생성 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ServiceDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "2. Service"
+                ],
+                "summary": "Service Update",
+                "description": "서비스 수정",
+                "operationId": "serviceUpdateUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "Dto",
+                        "description": "서비스 수정 객체",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ServiceDto"
+                        }
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/service/f/{idx}": {
+            "patch": {
+                "tags": [
+                    "2. Service"
+                ],
+                "summary": "Service IsDelete 'F'",
+                "description": "서비스 isDelete 'F'",
+                "operationId": "serviceFUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "서비스 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/service/t/{idx}": {
+            "patch": {
+                "tags": [
+                    "2. Service"
+                ],
+                "summary": "Service IsDelete 'T'",
+                "description": "서비스 isDelete 'T'",
+                "operationId": "serviceTUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "서비스 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/service/tcheck/{idx}": {
+            "patch": {
+                "tags": [
+                    "2. Service"
+                ],
+                "summary": "Service isDelete 'T' Child List",
+                "description": "서비스 isDelete T 될때 같이 T 되는 자식 리스트",
+                "operationId": "serviceTChildCheckUsingPATCH",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "서비스 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_Single«Map«string,object»»"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/service/{idx}": {
+            "delete": {
+                "tags": [
+                    "2. Service"
+                ],
+                "summary": "Service Delete",
+                "description": "서비스 완전 제거",
+                "operationId": "serviceDeleteUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "idx",
+                        "in": "path",
+                        "description": "서비스 번호",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Common"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/servicegroupname": {
+            "get": {
+                "tags": [
+                    "2. Service"
+                ],
+                "summary": "Service GroupName List",
+                "description": "서비스 GroupName 리스트",
+                "operationId": "serviceGroupNameListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "X-AUTH-TOKEN",
+                        "in": "header",
+                        "description": "로그인 성공 후 access_token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/_List«Map«string,object»»"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "SwaggerData": {
+            "type": "object",
+            "properties": {
+                "basePath": {
+                    "type": "string"
+                },
+                "definitions": {
+                    "$ref": "#/definitions/JsonNode"
+                },
+                "host": {
+                    "type": "string"
+                },
+                "info": {
+                    "$ref": "#/definitions/JsonNode"
+                },
+                "paths": {
+                    "$ref": "#/definitions/JsonNode"
+                },
+                "swagger": {
+                    "type": "string"
+                },
+                "tags": {
+                    "$ref": "#/definitions/JsonNode"
+                }
+            }
+        },
+        "GroupDto": {
+            "type": "object",
+            "properties": {
+                "group_name": {
+                    "type": "string"
+                },
+                "group_no": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "_List«GroupDto»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "응답 코드번호 : > 0 정상, < 0 비정상"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/GroupDto"
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "description": "응답 메시지"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "응답 성공여부 : TRUE/FALSE"
+                }
+            }
+        },
+        "ServiceDto": {
+            "type": "object",
+            "properties": {
+                "definitions": {
+                    "type": "object"
+                },
+                "group_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "insert_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "is_deleted": {
+                    "type": "string"
+                },
+                "service_category_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "service_name_kr": {
+                    "type": "string"
+                },
+                "service_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "service_state": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "service_url": {
+                    "type": "string"
+                },
+                "updated_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "JsonNode": {
+            "type": "object",
+            "properties": {
+                "array": {
+                    "type": "boolean"
+                },
+                "bigDecimal": {
+                    "type": "boolean"
+                },
+                "bigInteger": {
+                    "type": "boolean"
+                },
+                "binary": {
+                    "type": "boolean"
+                },
+                "boolean": {
+                    "type": "boolean"
+                },
+                "containerNode": {
+                    "type": "boolean"
+                },
+                "double": {
+                    "type": "boolean"
+                },
+                "empty": {
+                    "type": "boolean"
+                },
+                "float": {
+                    "type": "boolean"
+                },
+                "floatingPointNumber": {
+                    "type": "boolean"
+                },
+                "int": {
+                    "type": "boolean"
+                },
+                "integralNumber": {
+                    "type": "boolean"
+                },
+                "long": {
+                    "type": "boolean"
+                },
+                "missingNode": {
+                    "type": "boolean"
+                },
+                "nodeType": {
+                    "type": "string",
+                    "enum": [
+                        "ARRAY",
+                        "BINARY",
+                        "BOOLEAN",
+                        "MISSING",
+                        "NULL",
+                        "NUMBER",
+                        "OBJECT",
+                        "POJO",
+                        "STRING"
+                    ]
+                },
+                "null": {
+                    "type": "boolean"
+                },
+                "number": {
+                    "type": "boolean"
+                },
+                "object": {
+                    "type": "boolean"
+                },
+                "pojo": {
+                    "type": "boolean"
+                },
+                "short": {
+                    "type": "boolean"
+                },
+                "textual": {
+                    "type": "boolean"
+                },
+                "valueNode": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "Collection«GrantedAuthority»": {
+            "type": "object"
+        },
+        "ReqEmployeeUpdateDto": {
+            "type": "object",
+            "properties": {
+                "employee_contact": {
+                    "type": "string"
+                },
+                "group_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "mail": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "ReqApiErrDto": {
+            "type": "object",
+            "properties": {
+                "api_err_code": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "api_err_msg": {
+                    "type": "string"
+                },
+                "api_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "api_url": {
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string"
+                },
+                "updated_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "_List«ApiCategoryDto»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "응답 코드번호 : > 0 정상, < 0 비정상"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ApiCategoryDto"
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "description": "응답 메시지"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "응답 성공여부 : TRUE/FALSE"
+                }
+            }
+        },
+        "ReqApiDelayDto": {
+            "type": "object",
+            "properties": {
+                "api_delay_code": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "api_delay_msg": {
+                    "type": "string"
+                },
+                "api_delay_time": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "api_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "api_url": {
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string"
+                },
+                "updated_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "ReqCertificationDto": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "Map«string,object»": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object"
+            }
+        },
+        "ServiceCategoryDto": {
+            "type": "object",
+            "properties": {
+                "category_name_kr": {
+                    "type": "string"
+                },
+                "insert_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "is_deleted": {
+                    "type": "string"
+                },
+                "service_category_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "updated_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "_Single«Map«string,object»»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "응답 코드번호 : > 0 정상, < 0 비정상"
+                },
+                "data": {
+                    "type": "object"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "응답 메시지"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "응답 성공여부 : TRUE/FALSE"
+                }
+            }
+        },
+        "ApiErrDto": {
+            "type": "object",
+            "properties": {
+                "api_err_code": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "api_err_comment": {
+                    "type": "string"
+                },
+                "api_err_msg": {
+                    "type": "string"
+                },
+                "api_err_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "api_err_status": {
+                    "type": "string"
+                },
+                "api_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "insert_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "_Single«string»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "응답 코드번호 : > 0 정상, < 0 비정상"
+                },
+                "data": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "응답 메시지"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "응답 성공여부 : TRUE/FALSE"
+                }
+            }
+        },
+        "_List«Map«string,object»»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "응답 코드번호 : > 0 정상, < 0 비정상"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Map«string,object»"
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "description": "응답 메시지"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "응답 성공여부 : TRUE/FALSE"
+                }
+            }
+        },
+        "UrlRequest": {
+            "type": "object",
+            "properties": {
+                "groupNo": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "serviceCategoryNo": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "swaggerUrl": {
+                    "type": "string"
+                }
+            }
+        },
+        "UrlResponse": {
+            "type": "object",
+            "properties": {
+                "swaggerData": {
+                    "$ref": "#/definitions/SwaggerData"
+                },
+                "urlCheck": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "_List«ServiceCategoryDto»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "응답 코드번호 : > 0 정상, < 0 비정상"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ServiceCategoryDto"
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "description": "응답 메시지"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "응답 성공여부 : TRUE/FALSE"
+                }
+            }
+        },
+        "GrantedAuthority": {
+            "type": "object",
+            "properties": {
+                "authority": {
+                    "type": "string"
+                }
+            }
+        },
+        "ReqEmailDto": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "mail": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "ReqApiDto": {
+            "type": "object",
+            "properties": {
+                "api_category_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "api_url": {
+                    "type": "string"
+                },
+                "delay_status": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "employee_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "employee_sub_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "err_status": {
+                    "type": "string"
+                },
+                "is_deleted": {
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string"
+                },
+                "param": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Map«string,object»"
+                    }
+                },
+                "parameter_type": {
+                    "type": "string"
+                },
+                "response_list": {
+                    "type": "object"
+                },
+                "response_type": {
+                    "type": "string"
+                },
+                "update_employee_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "_Single«ServiceCategoryDto»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "응답 코드번호 : > 0 정상, < 0 비정상"
+                },
+                "data": {
+                    "$ref": "#/definitions/ServiceCategoryDto"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "응답 메시지"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "응답 성공여부 : TRUE/FALSE"
+                }
+            }
+        },
+        "OverLapCommonResponse": {
+            "type": "object",
+            "properties": {
+                "isExpectedCreate": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CheckOverlapApi"
+                    }
+                },
+                "isExpectedDelete": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CheckOverlapApi"
+                    }
+                },
+                "isExpectedUpdate": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CheckOverlapApi"
+                    }
+                },
+                "overlap": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "Common": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "응답 코드번호 : > 0 정상, < 0 비정상"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "응답 메시지"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "응답 성공여부 : TRUE/FALSE"
+                }
+            }
+        },
+        "_Single«Map«string,string»»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "응답 코드번호 : > 0 정상, < 0 비정상"
+                },
+                "data": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "description": "응답 메시지"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "응답 성공여부 : TRUE/FALSE"
+                }
+            }
+        },
+        "SaveCommonResponse": {
+            "type": "object",
+            "properties": {
+                "properGroupNo": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "properServiceCategoryNo": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "saveSuccess": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "OverLapAndSaveRequest": {
+            "type": "object",
+            "properties": {
+                "apiCategoryName": {
+                    "type": "string"
+                },
+                "employee": {
+                    "$ref": "#/definitions/Employee"
+                },
+                "employeeSub": {
+                    "$ref": "#/definitions/Employee"
+                },
+                "groupNo": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "selectedApiList": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SelectedApiList"
+                    }
+                },
+                "serviceCategoryNo": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "swaggerUrl": {
+                    "type": "string"
+                },
+                "updateEmployeeId": {
+                    "type": "string"
+                }
+            }
+        },
+        "CheckOverlapApi": {
+            "type": "object",
+            "properties": {
+                "api_category_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "api_url": {
+                    "type": "string"
+                },
+                "is_deleted": {
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string"
+                }
+            }
+        },
+        "ApiDelayDto": {
+            "type": "object",
+            "properties": {
+                "api_delay_code": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "api_delay_comment": {
+                    "type": "string"
+                },
+                "api_delay_msg": {
+                    "type": "string"
+                },
+                "api_delay_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "api_delay_status": {
+                    "type": "string"
+                },
+                "api_delay_time": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "api_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "insert_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Employee": {
+            "type": "object",
+            "properties": {
+                "employee_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "group_name": {
+                    "type": "string"
+                },
+                "group_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "SelectedApiList": {
+            "type": "object",
+            "properties": {
+                "employee": {
+                    "type": "string"
+                },
+                "employeeSub": {
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string"
+                },
+                "path": {
+                    "type": "string"
+                }
+            }
+        },
+        "Map«string,string»": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "_List«string»": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "응답 코드번호 : > 0 정상, < 0 비정상"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "description": "응답 메시지"
+                },
+                "success": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "응답 성공여부 : TRUE/FALSE"
+                }
+            }
+        },
+        "ApiCategoryDto": {
+            "type": "object",
+            "properties": {
+                "api_category_name_kr": {
+                    "type": "string"
+                },
+                "api_category_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "insert_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "is_deleted": {
+                    "type": "string"
+                },
+                "service_no": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "updated_timestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        }
+    }
+}

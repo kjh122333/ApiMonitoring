@@ -1,0 +1,153 @@
+[33mcommit 89a7c48228d835f527b0139b1ae67fb7fdb2af92[m[33m ([m[1;36mHEAD -> [m[1;32mchoiyoungwon[m[33m, [m[1;31mbucket/master[m[33m)[m
+Merge: a25016f 3b906fe
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Tue Nov 12 15:52:06 2019 +0900
+
+    Merge branch 'master' of https://bitbucket.org/finalteambookmanagement/front-end
+
+[33mcommit a25016fe2c125fb4e1d560fa5659e6f4607f5487[m
+Merge: b6df813 d5daea2
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Tue Nov 12 15:49:53 2019 +0900
+
+    1112-choi
+
+[33mcommit b6df81379e665568229c88dacc21fd1f759b045e[m
+Merge: 65e8979 e0ca58f
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Tue Nov 12 15:48:22 2019 +0900
+
+    1112/ha
+
+[33mcommit d5daea25803e312a6fa6bf43c298a86bc9a9607c[m[33m ([m[1;31mbucket/choiyoungwon[m[33m)[m
+Author: YoungWon94 <chmp1408@gmail.com>
+Date:   Tue Nov 12 15:43:49 2019 +0900
+
+    191112
+
+[33mcommit e0ca58f43a832d5b3f928328855c0e54700c8d04[m
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Tue Nov 12 15:29:23 2019 +0900
+
+    1112
+
+[33mcommit b7c73c3b812b3abf96e5464ba765be57ba22969e[m
+Author: YoungWon94 <chmp1408@gmail.com>
+Date:   Tue Nov 12 11:04:18 2019 +0900
+
+    191112build
+
+[33mcommit 0eb930815a7599fd0d199872d119d761dd60aa85[m
+Author: YoungWon94 <chmp1408@gmail.com>
+Date:   Mon Nov 11 23:15:34 2019 +0900
+
+    191111
+
+[33mcommit 31c57d44e0dd29c1ea7146257cd771618e5c1ce8[m
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Mon Nov 11 23:14:02 2019 +0900
+
+    1111-home
+
+[33mcommit 3b906fe5d0faade1650eb79b7e23abca6a4f09d5[m
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Mon Nov 11 21:47:27 2019 +0900
+
+    yarn
+
+[33mcommit bbdc89393272733e5f322d3319e5144d7043e61e[m
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Mon Nov 11 20:12:38 2019 +0900
+
+    modify-Page
+
+[33mcommit 9293bb3ec4248978da7510930441b2ba39242de3[m
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Mon Nov 11 14:29:21 2019 +0900
+
+    1111/14:29
+
+[33mcommit 65e897919149f2f578ebe7d45f89636aa7b27efe[m
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Mon Nov 11 14:28:02 2019 +0900
+
+    1111test
+
+[33mcommit 0a23d696d9ebc5e9a00a3d53f8c85a0e63799a74[m
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Mon Nov 11 14:26:26 2019 +0900
+
+    test2
+
+[33mcommit 806f0e2f7b45f88c60ee6bd92472598d3638e7c3[m
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Mon Nov 11 14:17:35 2019 +0900
+
+    'jenkinsTest'
+
+[33mcommit 9844d878aa87345d1472a37301eabeda752773d9[m
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Mon Nov 11 14:11:30 2019 +0900
+
+    1111
+
+[33mcommit 1a690df0af29b37ef48ec9052b2302e486908627[m
+Author: YoungWon <chmp1408@gmail.com>
+Date:   Sun Nov 10 21:21:13 2019 +0900
+
+    191110
+
+[33mcommit 5808f165d7daa8063e29b31f26ff01ec327dafe9[m
+Author: YoungWon <chmp1408@gmail.com>
+Date:   Sun Nov 10 16:48:16 2019 +0900
+
+    191110
+
+[33mcommit 888ecbf65e62ce81b026a2408035428337d9b0d7[m
+Author: YoungWon94 <chmp1408@gmail.com>
+Date:   Sat Nov 9 19:07:56 2019 +0900
+
+    191109
+
+[33mcommit 8198dcbcc625c5229e7137dc028240882f3ad81b[m
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Sat Nov 9 19:07:46 2019 +0900
+
+    191109
+
+[33mcommit 309e1ecf6becf02a6f68486143df6b31c7797437[m[33m ([m[1;32mmaster[m[33m)[m
+Merge: 0d437dc e6c8d35
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Mon Nov 4 10:34:09 2019 +0900
+
+    second
+
+[33mcommit 0d437dc74d575f26c106de621197feecba1a3725[m
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Mon Nov 4 10:06:19 2019 +0900
+
+    first
+
+[33mcommit e6c8d35fd6f63d7058c548ed1af58d382f00638c[m
+Author: YoungWon94 <chmp1408@gmail.com>
+Date:   Mon Nov 4 10:03:15 2019 +0900
+
+    1
+
+[33mcommit 1b4dafe2a2a14a716aed13e4a2e2a808f49c304e[m
+Author: hajeonghun <hajh1994@gmail.com>
+Date:   Fri Nov 1 10:23:36 2019 +0900
+
+    first commit
+
+[33mcommit 70e2d6088ee3b675dc236cad2b5d9d08cdb31eef[m
+Author: YoungWon94 <chmp1408@gmail.com>
+Date:   Fri Nov 1 09:51:59 2019 +0900
+
+    1
+
+[33mcommit f33350b2a14282e300adb0ad0c04585d44057f0a[m
+Author: YoungWon94 <chmp1408@gmail.com>
+Date:   Thu Oct 31 10:02:54 2019 +0900
+
+    Initial commit from Create React App

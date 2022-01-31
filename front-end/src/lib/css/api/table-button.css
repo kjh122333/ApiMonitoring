@@ -1,0 +1,22 @@
+.table-operations {  
+  }
+  
+  .table-operations > button {
+    /* text-align: right; */
+    /* float:left; */
+  }
+  .table-operations > Form {
+    text-align: left;
+  }
+  .table-operations > label {
+    float: left;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: bold;
+  }
+  .table-operations > p {
+    text-align: left;
+    font-size: 25px;
+    font-family: sans-serif;
+    font-weight: bold;
+  }

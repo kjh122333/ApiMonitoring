@@ -1,0 +1,5007 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "자바 스프링기반 restful API 표준 입니다.",
+        "version": "0.5",
+        "title": "LuluBiz API",
+        "termsOfService": "http:/localhost:8080/wehago-template/",
+        "license": {
+            "name": "LICENSE",
+            "url": "http:/localhost:8080/wehago-template/"
+        }
+    },
+    "host": "172.16.114.171:8080",
+    "basePath": "/todo",
+    "tags": [
+        {
+            "name": "project-controller",
+            "description": "Project Controller"
+        },
+        {
+            "name": "log-controller",
+            "description": "Log Controller"
+        },
+        {
+            "name": "board-controller",
+            "description": "Board Controller"
+        },
+        {
+            "name": "service-key-controller",
+            "description": "Service Key Controller"
+        },
+        {
+            "name": "wehago-common-controller",
+            "description": "Wehago Common Controller"
+        },
+        {
+            "name": "sample-controller",
+            "description": "Sample Controller"
+        },
+        {
+            "name": "todo-controller",
+            "description": "Todo Controller"
+        }
+    ],
+    "paths": {
+        "/alivecheck": {
+            "get": {
+                "tags": [
+                    "wehago-common-controller"
+                ],
+                "summary": "getAliveCheck",
+                "operationId": "getAliveCheckUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/board": {
+            "post": {
+                "tags": [
+                    "board-controller"
+                ],
+                "summary": "보드 추가",
+                "operationId": "insertBoardUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "board_name",
+                        "in": "query",
+                        "description": "보드 이름(50자 이내)",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "board-controller"
+                ],
+                "summary": "보드 수정",
+                "operationId": "updateBoardUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "board_no",
+                        "in": "query",
+                        "description": "board_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "board_name",
+                        "in": "query",
+                        "description": "보드 이름(50자 이내)",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "board-controller"
+                ],
+                "summary": "보드 삭제",
+                "operationId": "deleteBoardUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "board_no",
+                        "in": "query",
+                        "description": "board_no(pk)",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/board/change/todo": {
+            "put": {
+                "tags": [
+                    "board-controller"
+                ],
+                "summary": "보드에 속한 할일 전체 이동",
+                "operationId": "updateTodoBoardNoUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "board_no",
+                        "in": "query",
+                        "description": "변경 전 board_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "target_board_no",
+                        "in": "query",
+                        "description": "변경 후 board_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/board/favorites": {
+            "get": {
+                "tags": [
+                    "board-controller"
+                ],
+                "summary": "즐겨찾는 보드 조회",
+                "operationId": "selectFavoriteBoardUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "order_type",
+                        "in": "query",
+                        "description": "사용자정의(CUSTOM), 최근생성일(CREATED), 최근업데이트(UPDATED), 기한일(DUE) 완료일(DONE)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "due_date",
+                        "in": "query",
+                        "description": "오늘(TODAY)/내일(TOMORROW)/이번주(WEEK)/지연(1),기한없음(2)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reporter_type",
+                        "in": "query",
+                        "description": "할당한 일(R), 참조한일(W)",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "board-controller"
+                ],
+                "summary": "즐겨찾는 보드 추가",
+                "operationId": "insertFavoriteBoardUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "board_no",
+                        "in": "query",
+                        "description": "board_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "board-controller"
+                ],
+                "summary": "즐겨찾는 보드 제거",
+                "operationId": "deleteFavoriteBoardUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "board_favorites_no",
+                        "in": "query",
+                        "description": "board_favorites_no",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "board_no",
+                        "in": "query",
+                        "description": "board_no",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/board/favorites/sort": {
+            "put": {
+                "tags": [
+                    "board-controller"
+                ],
+                "summary": "보드 순서 변경",
+                "operationId": "updateFavoritesBoardOrderUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "boardNoList",
+                        "in": "query",
+                        "description": "[{board_no:1,sort_no:1}]",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/board/sort": {
+            "put": {
+                "tags": [
+                    "board-controller"
+                ],
+                "summary": "보드 순서 변경",
+                "operationId": "updateBoardOrderUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "boardNoList",
+                        "in": "query",
+                        "description": "[{board_no:1,sort_no:1}]",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/board/subtodo": {
+            "get": {
+                "tags": [
+                    "board-controller"
+                ],
+                "summary": "하위할일로 등록가능한 할일 조회",
+                "operationId": "selectAvailableSubTodoUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no(둘중 하나는 필수값)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_no",
+                        "in": "query",
+                        "description": "todo_no(둘중 하나는 필수값)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/change/todoAssign": {
+            "put": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "보드에 속한 할일 담당자 일괄 변경",
+                "operationId": "updateTodoAssignUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "assignee_employee_no",
+                        "in": "query",
+                        "description": "assignee_employee_no",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "assignee_employee_name",
+                        "in": "query",
+                        "description": "assignee_employee_name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "board_no",
+                        "in": "query",
+                        "description": "board_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/filter": {
+            "get": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 필터 조회",
+                "operationId": "selectFilterUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 필터 추가",
+                "operationId": "insertFilterUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "filter_name",
+                        "in": "query",
+                        "description": "필터이름",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "project_nos",
+                        "in": "query",
+                        "description": "프로젝트 번호",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "assignee_employee_nos",
+                        "in": "query",
+                        "description": "할당자 employee_no/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reporter_employee_nos",
+                        "in": "query",
+                        "description": "생성자 employee_no/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "watcher_employee_nos",
+                        "in": "query",
+                        "description": "참조자 employee_no/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todo_status",
+                        "in": "query",
+                        "description": "할일 상태",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "priorities",
+                        "in": "query",
+                        "description": "우선순위",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "master_tag_nos",
+                        "in": "query",
+                        "description": "태그",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "from_create_date",
+                        "in": "query",
+                        "description": "생성 시작일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "to_create_date",
+                        "in": "query",
+                        "description": "생성일 마지막일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "from_due_date",
+                        "in": "query",
+                        "description": "기한 시작일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "to_due_date",
+                        "in": "query",
+                        "description": "기한 마지막일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "from_end_date",
+                        "in": "query",
+                        "description": "종료 시작일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "to_end_date",
+                        "in": "query",
+                        "description": "종료 마지막일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todo_name",
+                        "in": "query",
+                        "description": "할일 이름",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_delayed",
+                        "in": "query",
+                        "description": "지연여부/설정안함(null),지연(1)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "due_date",
+                        "in": "query",
+                        "description": "기한일/설정안함(null),날짜설정(1),기한없음(2)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "create_date",
+                        "in": "query",
+                        "description": "생성일/설정안함(null),날짜설정(1)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "query",
+                        "description": "완료일/설정안함(null),날짜설정(1)",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 필터 수정",
+                "operationId": "updateFilterUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_filter_no",
+                        "in": "query",
+                        "description": "todo_filter_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "filter_name",
+                        "in": "query",
+                        "description": "필터이름",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "project_nos",
+                        "in": "query",
+                        "description": "프로젝트 번호",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "assignee_employee_nos",
+                        "in": "query",
+                        "description": "할당자 employee_no/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reporter_employee_nos",
+                        "in": "query",
+                        "description": "생성자 employee_no/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "watcher_employee_nos",
+                        "in": "query",
+                        "description": "참조자 employee_no/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todo_status",
+                        "in": "query",
+                        "description": "할일 상태/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "priorities",
+                        "in": "query",
+                        "description": "우선순위/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "master_tag_nos",
+                        "in": "query",
+                        "description": "태그/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "from_create_date",
+                        "in": "query",
+                        "description": "생성 시작일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "to_create_date",
+                        "in": "query",
+                        "description": "생성일 마지막일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "from_due_date",
+                        "in": "query",
+                        "description": "기한 시작일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "to_due_date",
+                        "in": "query",
+                        "description": "기한 마지막일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "from_end_date",
+                        "in": "query",
+                        "description": "종료 시작일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "to_end_date",
+                        "in": "query",
+                        "description": "종료 마지막일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todo_name",
+                        "in": "query",
+                        "description": "할일 이름",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_delayed",
+                        "in": "query",
+                        "description": "지연여부/설정안함(all),지연(1)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "due_date",
+                        "in": "query",
+                        "description": "기한일/설정안함(all),날짜설정(1),기한없음(2)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "create_date",
+                        "in": "query",
+                        "description": "생성일/설정안함(all),날짜설정(1)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "query",
+                        "description": "완료일/설정안함(all),날짜설정(1)",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 필터 삭제",
+                "operationId": "deleteFilterUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_filter_no",
+                        "in": "query",
+                        "description": "todo_filter_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/logs": {
+            "get": {
+                "tags": [
+                    "log-controller"
+                ],
+                "summary": "엘라스틱 서치 로그조회",
+                "operationId": "selectAvailablePreTodoUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_no",
+                        "in": "query",
+                        "description": "todo_no",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "조회할페이지(디폴트:1)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "page_size",
+                        "in": "query",
+                        "description": "한페이지에 조회할 로그수(디폴트:30)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "fromDate",
+                        "in": "query",
+                        "description": "조회날짜(YYYYMMDD)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "toDate",
+                        "in": "query",
+                        "description": "조회날짜(YYYYMMDD)",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/myTodoList": {
+            "get": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 다건 조회(todo_no 번호기준 할일 상태값 및 할일 번호 반환.",
+                "operationId": "selectTodoListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todoList",
+                        "in": "query",
+                        "description": "할일 번호(123,456,789)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "assignee_employee_no",
+                        "in": "query",
+                        "description": "assignee_employee_no",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no(특정프로젝트 조회)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/project": {
+            "get": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "프로젝트 조회",
+                "operationId": "selectProjectUsingGET_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no(pk)",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "order_type",
+                        "in": "query",
+                        "description": "사용자정의(CUSTOM), 최근생성일(CREATED), 최근업데이트(UPDATED),기한일(DUE) 완료일(DONE),우선순위(HIGH)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "due_date",
+                        "in": "query",
+                        "description": "오늘(TODAY)/내일(TOMORROW)/이번주(WEEK)/지연(1),기한없음(2)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reporter_type",
+                        "in": "query",
+                        "description": "할당한 일(R), 참조한일(W)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todo_status",
+                        "in": "query",
+                        "description": "생성(0),진행중(3), 중지(6), 완료(10)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "프로젝트 추가",
+                "operationId": "insertProjectUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_name",
+                        "in": "query",
+                        "description": "프로젝트 그룹명",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "identify_color",
+                        "in": "query",
+                        "description": "프로젝트 구분색",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "project_type",
+                        "in": "query",
+                        "description": "기본할일(B), 개인프로젝트(P), 공유프로젝트(S)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "member_type",
+                        "in": "query",
+                        "description": "조직도(O),위톡(W),",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "room_id",
+                        "in": "query",
+                        "description": "위톡 대화방 아이디",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_calendar",
+                        "in": "query",
+                        "description": "캘린더 연동",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_assignee",
+                        "in": "query",
+                        "description": "내가 할당 받은 일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_repoter",
+                        "in": "query",
+                        "description": "내가 할당한 일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_watcher",
+                        "in": "query",
+                        "description": "참조하는 일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "tax_flag",
+                        "in": "query",
+                        "description": "세무대리 구분",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "cno_ent",
+                        "in": "query",
+                        "description": "세무업체 회사번호 ",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "masterEmployeeNo",
+                        "in": "query",
+                        "description": "관리자 employee_no",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "groupMemberList",
+                        "in": "query",
+                        "description": "공유프로젝트(S)-공유멤버(프로젝트 생성자 제외)/[{employee_no:5683,employee_name:위하고}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "sessionInfo",
+                        "in": "query",
+                        "description": "수정시 세션 관련 필요정보([{employee_no:5683,employee_name:위하고,company_no :2404,company_name:더존비즈온(본점),portal_id:wehago}]",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "프로젝트 수정",
+                "operationId": "updateProjectUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no(pk)",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_name",
+                        "in": "query",
+                        "description": "프로젝트 그룹명",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "identify_color",
+                        "in": "query",
+                        "description": "프로젝트 구분색",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "project_type",
+                        "in": "query",
+                        "description": "기본할일(B), 개인프로젝트(P), 공유프로젝트(S)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "member_type",
+                        "in": "query",
+                        "description": "조직도(O),위톡(W),",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "room_id",
+                        "in": "query",
+                        "description": "위톡 대화방 아이디",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_calendar",
+                        "in": "query",
+                        "description": "캘린더 연동",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_assignee",
+                        "in": "query",
+                        "description": "내가 할당 받은 일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_repoter",
+                        "in": "query",
+                        "description": "내가 할당한 일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_watcher",
+                        "in": "query",
+                        "description": "참조하는 일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "groupMemberList",
+                        "in": "query",
+                        "description": "공유프로젝트(S)-공유멤버/[{employee_no:5683,employee_name:위하고}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "changeAssigneeList",
+                        "in": "query",
+                        "description": "[{assignee_employee_no:5683, new_assignee_employee_no:30965, new_assignee_employee_name:이해빈}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "masterEmployeeNo",
+                        "in": "query",
+                        "description": "관리자 employee_no",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "프로젝트 삭제",
+                "operationId": "deleteProjectUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no(pk)",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/project/change-member": {
+            "put": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "수임처 프로젝트 맴버 수정",
+                "operationId": "projectChangeMemberUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_name",
+                        "in": "query",
+                        "description": "프로젝트 그룹명",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "identify_color",
+                        "in": "query",
+                        "description": "프로젝트 구분색",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no(pk)",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "sessionInfo",
+                        "in": "query",
+                        "description": "수정시 세션 관련 필요정보([{employee_no:5683,employee_name:위하고,company_no :2404,company_name:더존비즈온(본점),portal_id:wehago}]",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "deleteMemberList",
+                        "in": "query",
+                        "description": "공유프로젝트(S)-공유멤버/[{employee_no:5683,employee_name:위하고}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "insertMemberList",
+                        "in": "query",
+                        "description": "공유프로젝트(S)-공유멤버/[{employee_no:5683,employee_name:위하고}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "changeAssigneeList",
+                        "in": "query",
+                        "description": "[{assignee_employee_no:5683, new_assignee_employee_no:30965, new_assignee_employee_name:이해빈}]",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/project/cnoEnt": {
+            "post": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "프로젝트 수임 추가",
+                "operationId": "insertEntProjectUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_name",
+                        "in": "query",
+                        "description": "프로젝트 그룹명",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "identify_color",
+                        "in": "query",
+                        "description": "프로젝트 구분색",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "project_type",
+                        "in": "query",
+                        "description": "기본할일(B), 개인프로젝트(P), 공유프로젝트(S)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "member_type",
+                        "in": "query",
+                        "description": "조직도(O),위톡(W),",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "room_id",
+                        "in": "query",
+                        "description": "위톡 대화방 아이디",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_calendar",
+                        "in": "query",
+                        "description": "캘린더 연동",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_assignee",
+                        "in": "query",
+                        "description": "내가 할당 받은 일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_repoter",
+                        "in": "query",
+                        "description": "내가 할당한 일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_watcher",
+                        "in": "query",
+                        "description": "참조하는 일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "tax_flag",
+                        "in": "query",
+                        "description": "세무대리 구분",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "cno_ent",
+                        "in": "query",
+                        "description": "세무업체 회사번호 ",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "groupMemberList",
+                        "in": "query",
+                        "description": "공유프로젝트(S)-공유멤버(프로젝트 생성자 제외)/[{employee_no:5683,employee_name:위하고}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "sessionInfo",
+                        "in": "query",
+                        "description": "수정시 세션 관련 필요정보([{employee_no:5683,employee_name:위하고,company_no :2404,company_name:더존비즈온(본점),portal_id:wehago}]",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "수임처 프로젝트 삭제",
+                "operationId": "deleteCnoEntProjectUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "delete_type",
+                        "in": "query",
+                        "description": "delete_type(1 : 세무사 및 수임처 프로젝트 삭제/ 2: 수임처 프로젝트 삭제)",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "company_no",
+                        "in": "query",
+                        "description": "company_no",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "cno_ent",
+                        "in": "query",
+                        "description": "cno_ent",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/project/ent": {
+            "post": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "수임 업체 프로젝트 조회",
+                "operationId": "selectEnoProjectUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "sessionInfo",
+                        "in": "query",
+                        "description": "수정시 세션 관련 필요정보([{employee_no:5683,employee_name:위하고,company_no :2404,company_name:더존비즈온(본점),portal_id:wehago}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "cno_ent",
+                        "in": "query",
+                        "description": "세무업체 회사번호",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "year",
+                        "in": "query",
+                        "description": "조회년도",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "수임처 프로젝트 수정",
+                "operationId": "updatEntProjectUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no(pk)",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "sessionInfo",
+                        "in": "query",
+                        "description": "수정시 세션 관련 필요정보([{employee_no:5683,employee_name:위하고,company_no :2404,company_name:더존비즈온(본점),portal_id:wehago}]",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "project_name",
+                        "in": "query",
+                        "description": "프로젝트 그룹명",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "identify_color",
+                        "in": "query",
+                        "description": "프로젝트 구분색",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "project_type",
+                        "in": "query",
+                        "description": "기본할일(B), 개인프로젝트(P), 공유프로젝트(S)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "member_type",
+                        "in": "query",
+                        "description": "조직도(O),위톡(W),",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "room_id",
+                        "in": "query",
+                        "description": "위톡 대화방 아이디",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_calendar",
+                        "in": "query",
+                        "description": "캘린더 연동",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_assignee",
+                        "in": "query",
+                        "description": "내가 할당 받은 일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_repoter",
+                        "in": "query",
+                        "description": "내가 할당한 일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_show_watcher",
+                        "in": "query",
+                        "description": "참조하는 일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "groupMemberList",
+                        "in": "query",
+                        "description": "공유프로젝트(S)-공유멤버/[{employee_no:5683,employee_name:위하고}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "changeAssigneeList",
+                        "in": "query",
+                        "description": "[{assignee_employee_no:5683, new_assignee_employee_no:30965, new_assignee_employee_name:이해빈}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "masterEmployeeNo",
+                        "in": "query",
+                        "description": "관리자 employee_no",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/project/entList": {
+            "post": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "수임 업체 프로젝트 전체 리스트 조회(cno 기준(세무사)",
+                "operationId": "selectEnoProjectListUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "sessionInfo",
+                        "in": "query",
+                        "description": "수정시 세션 관련 필요정보([{employee_no:5683,employee_name:위하고,company_no :2404,company_name:더존비즈온(본점),portal_id:wehago}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "cno_ent",
+                        "in": "query",
+                        "description": "세무업체 회사번호",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "year",
+                        "in": "query",
+                        "description": "조회년도",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/project/list": {
+            "get": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "프로젝트 리스트 조회",
+                "operationId": "selectProjectListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/project/list/sync-calendar": {
+            "get": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "캘린더 연동 -프로젝트 리스트 조회",
+                "operationId": "selectProjectList2UsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/project/masterProjectList": {
+            "get": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "자신이 마스터인 프로젝트 리스트 조회 ",
+                "operationId": "selectMasterProjectListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "employee_no",
+                        "in": "query",
+                        "description": "employee_no",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/project/member": {
+            "get": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "프로젝트 조회",
+                "operationId": "selectProjectUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no(pk)",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/project/myProject": {
+            "delete": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "자신이 속한 프로젝트 삭제(공유 프로젝트는 대상 아님)",
+                "operationId": "deleteMyProjectUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "employee_no",
+                        "in": "query",
+                        "description": "employee_no",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/project/order": {
+            "put": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "프로젝트 순서지정(삭제예정)",
+                "operationId": "updateProjectOrderUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "projectList",
+                        "in": "query",
+                        "description": "[{project_member_no:1,project_order:1}, {project_member_no:1, project_order:2}]",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/project/order2": {
+            "put": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "프로젝트 순서 지정",
+                "operationId": "updateProjectOrder2UsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_member_no",
+                        "in": "query",
+                        "description": "project_member_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_order",
+                        "in": "query",
+                        "description": "project_order",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/project/projectMemberList": {
+            "get": {
+                "tags": [
+                    "project-controller"
+                ],
+                "summary": "선택된 프로젝트 맴버 리스트 조회 ",
+                "operationId": "getProjectMemberListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/sample": {
+            "get": {
+                "tags": [
+                    "sample-controller"
+                ],
+                "summary": "getSampleList",
+                "operationId": "getSampleListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "sample-controller"
+                ],
+                "summary": "createSample",
+                "operationId": "createSampleUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "sample-controller"
+                ],
+                "summary": "updateSample",
+                "operationId": "updateSampleUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/sample/api": {
+            "get": {
+                "tags": [
+                    "sample-controller"
+                ],
+                "summary": "sampleApi",
+                "operationId": "sampleApiUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/sample/fileupload": {
+            "post": {
+                "tags": [
+                    "sample-controller"
+                ],
+                "summary": "sampleFileUpload",
+                "operationId": "sampleFileUploadUsingPOST",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "file",
+                        "in": "formData",
+                        "description": "file",
+                        "required": true,
+                        "type": "file"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/sample/inner": {
+            "post": {
+                "tags": [
+                    "sample-controller"
+                ],
+                "summary": "sampleInner",
+                "operationId": "sampleInnerUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/sample/mongo": {
+            "get": {
+                "tags": [
+                    "sample-controller"
+                ],
+                "summary": "sampleMongoSelect",
+                "operationId": "sampleMongoSelectUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "sample-controller"
+                ],
+                "summary": "sampleMongoInsert",
+                "operationId": "sampleMongoInsertUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/sample/multi": {
+            "post": {
+                "tags": [
+                    "sample-controller"
+                ],
+                "summary": "sampleMulti",
+                "operationId": "sampleMultiUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/sample/paging": {
+            "get": {
+                "tags": [
+                    "sample-controller"
+                ],
+                "summary": "samplePaging",
+                "operationId": "samplePagingUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/sample/requestParam": {
+            "post": {
+                "tags": [
+                    "sample-controller"
+                ],
+                "summary": "sampleRequestParam",
+                "operationId": "sampleRequestParamUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "pw",
+                        "in": "query",
+                        "description": "pw",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "name",
+                        "required": false,
+                        "type": "string",
+                        "default": "김더존"
+                    },
+                    {
+                        "name": "company_code",
+                        "in": "query",
+                        "description": "company_code",
+                        "required": false,
+                        "type": "string",
+                        "default": "0001"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/sample/tran": {
+            "get": {
+                "tags": [
+                    "sample-controller"
+                ],
+                "summary": "sampleTran",
+                "operationId": "sampleTranUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/sample/{id}": {
+            "get": {
+                "tags": [
+                    "sample-controller"
+                ],
+                "summary": "getSampleSingle",
+                "operationId": "getSampleSingleUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "sample-controller"
+                ],
+                "summary": "deleteSample",
+                "operationId": "deleteSampleUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/service/servicekey": {
+            "get": {
+                "tags": [
+                    "service-key-controller"
+                ],
+                "summary": "서비스키 조회",
+                "operationId": "getServiceKeyUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/settings": {
+            "get": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "개인 설정 조회",
+                "operationId": "selectPersonalSettingsUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/todo": {
+            "post": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 추가",
+                "operationId": "insertTodoUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "board_no",
+                        "in": "query",
+                        "description": "board_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "parent_todo_no",
+                        "in": "query",
+                        "description": "parent_todo_no",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_name",
+                        "in": "query",
+                        "description": "할일 명",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todo_description",
+                        "in": "query",
+                        "description": "할일 세부설명",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todo_status",
+                        "in": "query",
+                        "description": "할일생성(0), 진행중(3), 중지(6), 완료(10)",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "assignee_employee_no",
+                        "in": "query",
+                        "description": "할일 할당받은 사원(employee_no)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "assignee_employee_name",
+                        "in": "query",
+                        "description": "할일 할당받은 사원이름(employee_name)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "priority_order",
+                        "in": "query",
+                        "description": "없음(0), 상(1), 중(3), 하(5)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_important",
+                        "in": "query",
+                        "description": "중요표시여부",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "create_date",
+                        "in": "query",
+                        "description": "생성일(yyyyMMdd)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "due_date",
+                        "in": "query",
+                        "description": "기한일(yyyyMMdd)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "query",
+                        "description": "완료일(yyyyMMdd)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todo_order",
+                        "in": "query",
+                        "description": "할일 순서",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "is_completed",
+                        "in": "query",
+                        "description": "완료여부(T/F)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_web_alarm",
+                        "in": "query",
+                        "description": "웹 알림여부(T/F)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_mail_alarm",
+                        "in": "query",
+                        "description": "메일 알림여부(T/F)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "alarm_term",
+                        "in": "query",
+                        "description": "알림 간격(T/F)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "alarm_time",
+                        "in": "query",
+                        "description": "알림 시간(T/F)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "interval",
+                        "in": "query",
+                        "description": "알람 주기",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_repeat",
+                        "in": "query",
+                        "description": "반복여부(T/F)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "repeat_type",
+                        "in": "query",
+                        "description": "repeat_type(Y/M/W/D)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "mm",
+                        "in": "query",
+                        "description": "월",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "dd",
+                        "in": "query",
+                        "description": "일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "week",
+                        "in": "query",
+                        "description": "몇번째 주",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "weekday",
+                        "in": "query",
+                        "description": "일(0),월(1),화(2),수(3),목(4),금(5),토(6)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "repeat_end_date",
+                        "in": "query",
+                        "description": "반복기간(*일 경우 무제한)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "watcherList",
+                        "in": "query",
+                        "description": "참조자[{member_type:W, employee_no:1234, employee_name:위하고}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todoCheckList",
+                        "in": "query",
+                        "description": "체크리스트[{contents:할일하기, is_completed:T, is_deleted=F}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todoAttachedFileList",
+                        "in": "query",
+                        "description": "파일리스트[{파일데이터},{파일데이터}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todoTagList",
+                        "in": "query",
+                        "description": "태그리스트[{tag_name:자바,is_deleted=F}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "subTodoList",
+                        "in": "query",
+                        "description": "하위할일리스트todo_no1,todo_no2..",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "tax_flag",
+                        "in": "query",
+                        "description": "세무대리 구분",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "cno_ent",
+                        "in": "query",
+                        "description": "세무업체 회사번호 ",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "action_type",
+                        "in": "query",
+                        "description": "세무업체 관련 타입(할일 (1),tax(2),민원(3), 4대(4) ",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "link_info",
+                        "in": "query",
+                        "description": "세무 관련 화면 링크 정보",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "action_number",
+                        "in": "query",
+                        "description": "tax/ 4대관련 action_number 번호 ",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 수정",
+                "operationId": "updateTodoUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_no",
+                        "in": "query",
+                        "description": "todo_no(pk)",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "project_no",
+                        "in": "query",
+                        "description": "project_no",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "board_no",
+                        "in": "query",
+                        "description": "board_no",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "parent_todo_no",
+                        "in": "query",
+                        "description": "parent_todo_no",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_name",
+                        "in": "query",
+                        "description": "할일 명",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todo_description",
+                        "in": "query",
+                        "description": "할일 세부설명",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todo_status",
+                        "in": "query",
+                        "description": "할일생성(0), 진행중(3), 중지(6), 완료(10)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "assignee_employee_no",
+                        "in": "query",
+                        "description": "할일 할당받은 사원(employee_no)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "assignee_employee_name",
+                        "in": "query",
+                        "description": "할일 할당받은 사원이름(employee_name)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "priority_order",
+                        "in": "query",
+                        "description": "없음(0), 상(1), 중(3), 하(5)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_important",
+                        "in": "query",
+                        "description": "중요표시여부",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "create_date",
+                        "in": "query",
+                        "description": "생성일(yyyyMMdd)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "due_date",
+                        "in": "query",
+                        "description": "기한일(yyyyMMdd)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "query",
+                        "description": "완료일(yyyyMMdd)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todo_order",
+                        "in": "query",
+                        "description": "할일 순서",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "is_completed",
+                        "in": "query",
+                        "description": "완료여부(T/F)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_web_alarm",
+                        "in": "query",
+                        "description": "웹 알림여부(T/F)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_mail_alarm",
+                        "in": "query",
+                        "description": "메일 알림여부(T/F)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "alarm_term",
+                        "in": "query",
+                        "description": "알림 간격(T/F)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "alarm_time",
+                        "in": "query",
+                        "description": "알림 시간(T/F)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "interval",
+                        "in": "query",
+                        "description": "알람 주기",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_repeat",
+                        "in": "query",
+                        "description": "반복여부(T/F)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "repeat_type",
+                        "in": "query",
+                        "description": "repeat_type(Y/M/W/D)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "mm",
+                        "in": "query",
+                        "description": "월",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "dd",
+                        "in": "query",
+                        "description": "일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "week",
+                        "in": "query",
+                        "description": "몇번째 주",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "weekday",
+                        "in": "query",
+                        "description": "일(0),월(1),화(2),수(3),목(4),금(5),토(6)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "repeat_end_date",
+                        "in": "query",
+                        "description": "반복기간(*일 경우 무제한)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "watcherList",
+                        "in": "query",
+                        "description": "참조자[{member_type:W, employee_no:1234, employee_name:위하고}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "insertTodoCheckList",
+                        "in": "query",
+                        "description": "체크리스트[{contents:할일하기, is_completed:T}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "updateTodoCheckList",
+                        "in": "query",
+                        "description": "체크리스트[{todo_checklist_no:1,contents:할일하기,is_completed:T,is_deleted=F}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todoAttachedFileList",
+                        "in": "query",
+                        "description": "파일리스트[{파일데이터},{파일데이터}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todoTagList",
+                        "in": "query",
+                        "description": "태그리스트[{tag_name:자바,is_deleted=F}]",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "subTodoList",
+                        "in": "query",
+                        "description": "하위할일리스트todo_no1,todo_no2..",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "deleteSubTodoList",
+                        "in": "query",
+                        "description": "삭제하위할일리스트todo_no1,todo_no2..",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "option",
+                        "in": "query",
+                        "description": "현재할일만(T), 이후할일(N), 전체(A)",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 삭제",
+                "operationId": "deleteTodoUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_no",
+                        "in": "query",
+                        "description": "todo_no(pk)",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "option",
+                        "in": "query",
+                        "description": "현재할일만(T),이후할일(N),전체(A)",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/todo/comment": {
+            "get": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 댓글 조회",
+                "operationId": "selectCommentUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_no",
+                        "in": "query",
+                        "description": "todo_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 댓글 추가",
+                "operationId": "insertCommentUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_no",
+                        "in": "query",
+                        "description": "todo_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "parent_comment_no",
+                        "in": "query",
+                        "description": "parent_comment_no",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "contents",
+                        "in": "query",
+                        "description": "댓글 내용",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 댓글 수정",
+                "operationId": "updateCommentUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_comment_no",
+                        "in": "query",
+                        "description": "todo_comment_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "contents",
+                        "in": "query",
+                        "description": "댓글 내용",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 댓글 삭제",
+                "operationId": "deleteCommentUsingDELETE",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_comment_no",
+                        "in": "query",
+                        "description": "todo_comment_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/todo/filter": {
+            "get": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 조회 (전체할일/완료할일)",
+                "operationId": "selectFilteredTodoUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_type",
+                        "in": "query",
+                        "description": "전체(ALL),완료(END),내할일(ASSIGNEE),관심할일(REPORTER)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "order_type",
+                        "in": "query",
+                        "description": "사용자정의(CUSTOM),최근생성일(CREATED),최근업데이트(UPDATED),기한일(DUE),완료일(DONE),상위우선순위(HIGH)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "due_date",
+                        "in": "query",
+                        "description": "오늘(TODAY)/내일(TOMORROW)/이번주(WEEK)/지연(1),기한없음(2)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reporter_type",
+                        "in": "query",
+                        "description": "할당한일(R),할당받은일(M),참조한일(W)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "include_level_type",
+                        "in": "query",
+                        "description": "상위할일만(H), 하위할일포함(L)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todo_filter_no",
+                        "in": "query",
+                        "description": "todo_filter_no",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "from_end_date",
+                        "in": "query",
+                        "description": "완료할일-종료 시작일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "to_end_date",
+                        "in": "query",
+                        "description": "완료할일-종료 마지막일",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/todo/filter/paging": {
+            "get": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 조회(페이징)",
+                "operationId": "selectFilteredTodo2UsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "reporter_type",
+                        "in": "query",
+                        "description": "할당한일(R),할당받은일(M),참조한일(W)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "현재 페이지(Default 1페이지)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "record",
+                        "in": "query",
+                        "description": "페이지당 레코드 수(Default 30개)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/todo/important": {
+            "get": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 조회(중요할일+페이징처리",
+                "operationId": "selectImportantTodoUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "due_date",
+                        "in": "query",
+                        "description": "오늘(TODAY)/내일(TOMORROW)/이번주(WEEK)/지연(1),기한없음(2)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "현재 페이지(Default 1페이지)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "record",
+                        "in": "query",
+                        "description": "페이지당 레코드 수(Default 30개)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "중요할일 체크",
+                "operationId": "insertImportantTodoUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "todo_no",
+                        "in": "query",
+                        "description": "todo_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "is_important",
+                        "in": "query",
+                        "description": "중요여부(T/F)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/todo/list": {
+            "post": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 추가",
+                "operationId": "insertEntTodoUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "sessionInfo",
+                        "in": "query",
+                        "description": "수정시 세션 관련 필요정보([{employee_no:5683,employee_name:위하고,company_no :2404,company_name:더존비즈온(본점),portal_id:wehago}]",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todoList",
+                        "in": "query",
+                        "description": "todoList",
+                        "required": true,
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        },
+                        "collectionFormat": "multi"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/todo/managerTodoList": {
+            "get": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "수임처 작업 리스트 관리",
+                "operationId": "selectManagerTodoListUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_type",
+                        "in": "query",
+                        "description": "전체(ALL), 중요(IMPORTANT), 완료(END), 프로젝트(PRJ)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "cno_ent",
+                        "in": "query",
+                        "description": "수임처 번호",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "assignee_employee_nos",
+                        "in": "query",
+                        "description": "할당자 employee_no/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "from_end_date",
+                        "in": "query",
+                        "description": "기한 시작일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "to_end_date",
+                        "in": "query",
+                        "description": "기한 마지막일",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/todo/search": {
+            "get": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 검색",
+                "operationId": "selectTodoSearchUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_type",
+                        "in": "query",
+                        "description": "전체(ALL), 중요(IMPORTANT), 완료(END), 프로젝트(PRJ)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "project_nos",
+                        "in": "query",
+                        "description": "프로젝트 시퀀스, PRJ의 경우 필수값",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "assignee_employee_nos",
+                        "in": "query",
+                        "description": "할당자 employee_no/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reporter_employee_nos",
+                        "in": "query",
+                        "description": "생성자 employee_no/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "watcher_employee_nos",
+                        "in": "query",
+                        "description": "참조자 employee_no/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todo_status",
+                        "in": "query",
+                        "description": "할일 상태/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "priorities",
+                        "in": "query",
+                        "description": "우선순위/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "master_tag_nos",
+                        "in": "query",
+                        "description": "태그/설정안함(all)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "from_create_date",
+                        "in": "query",
+                        "description": "생성 시작일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "to_create_date",
+                        "in": "query",
+                        "description": "생성일 마지막일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "from_due_date",
+                        "in": "query",
+                        "description": "기한 시작일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "to_due_date",
+                        "in": "query",
+                        "description": "기한 마지막일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "from_end_date",
+                        "in": "query",
+                        "description": "종료 시작일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "to_end_date",
+                        "in": "query",
+                        "description": "종료 마지막일",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "todo_name",
+                        "in": "query",
+                        "description": "할일 이름",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_delayed",
+                        "in": "query",
+                        "description": "지연여부/설정안함(all),지연(1)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "due_date",
+                        "in": "query",
+                        "description": "기한일/설정안함(all),날짜설정(1),기한없음(2)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "create_date",
+                        "in": "query",
+                        "description": "생성일/설정안함(all),날짜설정(1)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "query",
+                        "description": "완료일/설정안함(all),날짜설정(1)",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/todo/status": {
+            "put": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 상태값 변경",
+                "operationId": "updateTodoStatusUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "todo_no",
+                        "in": "query",
+                        "description": "todo_no",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_status",
+                        "in": "query",
+                        "description": "할일(0),진행중(3), 진행중(6), 완료(10)",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "ent_flag",
+                        "in": "query",
+                        "description": "세무대리 구분",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "cno_ent",
+                        "in": "query",
+                        "description": "세무업체 회사번호 ",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "action_number",
+                        "in": "query",
+                        "description": "세무대리 actionNumber(todo번호와 같은 의미의no)",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/todo/sync-calendar": {
+            "get": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "캘린더 연동 - 할일 리스트 조회",
+                "operationId": "selectTodoListUsingGET_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "month",
+                        "in": "query",
+                        "description": "조회월(yyyyMM)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/todo/tag/all": {
+            "get": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 태그 전체 조회",
+                "operationId": "selectTagAllUsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/todo2": {
+            "get": {
+                "tags": [
+                    "todo-controller"
+                ],
+                "summary": "할일 조회(단건)",
+                "operationId": "selectTodo2UsingGET",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json;charset=utf-8"
+                ],
+                "parameters": [
+                    {
+                        "name": "cno",
+                        "in": "query",
+                        "description": "cno",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "name": "todo_no",
+                        "in": "query",
+                        "description": "todo_no",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/LuluResult"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "LuluResult": {
+            "type": "object",
+            "properties": {
+                "resultCode": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "resultData": {
+                    "type": "object"
+                },
+                "resultMsg": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
